@@ -1505,7 +1505,7 @@
 											"top": 398,
 											"width": 139.09619140625,
 											"height": 13,
-											"text": "+Attribute1",
+											"text": "+name: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1784,8 +1784,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFtiCDdfo7I9u0="
 							},
-							"name": "Attribute1",
-							"type": ""
+							"name": "name",
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
