@@ -43,7 +43,7 @@
 							"font": "Arial;13;0",
 							"left": 192,
 							"top": 440,
-							"width": 729,
+							"width": 745,
 							"height": 665
 						},
 						{
@@ -526,13 +526,30 @@
 											"height": 13,
 											"text": "+getInstance(): GUIView",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFt1PYfpXbSVgw=",
+											"_parent": {
+												"$ref": "AAAAAAFtiB98rI3V0Ks="
+											},
+											"model": {
+												"$ref": "AAAAAAFt1PYfeXbPC8Y="
+											},
+											"font": "Arial;13;0",
+											"left": 989,
+											"top": 219,
+											"width": 141.7431640625,
+											"height": 13,
+											"text": "+buildView()",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 984,
 									"top": 184,
 									"width": 151.7431640625,
-									"height": 38
+									"height": 53
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -3243,11 +3260,30 @@
 									"model": {
 										"$ref": "AAAAAAFt0EU2H/xvcb0="
 									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFt1PV5zXJCgLc=",
+											"_parent": {
+												"$ref": "AAAAAAFt0EU2IPx4B6Y="
+											},
+											"model": {
+												"$ref": "AAAAAAFt1PV5gXI2CgM="
+											},
+											"font": "Arial;13;0",
+											"left": 333,
+											"top": 192,
+											"width": 151,
+											"height": 13,
+											"text": "+main()",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
 									"left": 328,
 									"top": 187,
 									"width": 161,
-									"height": 10
+									"height": 23
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -4386,6 +4422,14 @@
 									"direction": "return"
 								}
 							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFt1PYfeXbPC8Y=",
+							"_parent": {
+								"$ref": "AAAAAAFtiB98q43MS1g="
+							},
+							"name": "buildView"
 						}
 					]
 				},
@@ -5172,6 +5216,16 @@
 							"target": {
 								"$ref": "AAAAAAFtiB9hU42ivgo="
 							}
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFt1PV5gXI2CgM=",
+							"_parent": {
+								"$ref": "AAAAAAFt0EU2H/xvcb0="
+							},
+							"name": "main"
 						}
 					]
 				}
