@@ -174,7 +174,7 @@
 											"top": 862,
 											"width": 203.404296875,
 											"height": 13,
-											"text": "-database: FilmFinder",
+											"text": "-filmfinder: FilmFinder",
 											"horizontalAlignment": 0
 										},
 										{
@@ -191,7 +191,7 @@
 											"top": 877,
 											"width": 203.404296875,
 											"height": 13,
-											"text": "+movies: List<Movie>",
+											"text": "+MasterList: List<Movie>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -208,7 +208,7 @@
 											"top": 892,
 											"width": 203.404296875,
 											"height": 13,
-											"text": "+profile: UserProfile",
+											"text": "+userprofile: UserProfile",
 											"horizontalAlignment": 0
 										},
 										{
@@ -227,13 +227,30 @@
 											"height": 13,
 											"text": "+scraper: Scraper",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFt+TPbi0mKCPg=",
+											"_parent": {
+												"$ref": "AAAAAAFtiB9hVo2qJLY="
+											},
+											"model": {
+												"$ref": "AAAAAAFt+TPbN0mHSIs="
+											},
+											"font": "Arial;13;0",
+											"left": 693,
+											"top": 922,
+											"width": 203.404296875,
+											"height": 13,
+											"text": "+ResultsList: List<Movie>",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 688,
 									"top": 857,
 									"width": 213.404296875,
-									"height": 68
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -256,7 +273,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 693,
-											"top": 930,
+											"top": 945,
 											"width": 203.404296875,
 											"height": 13,
 											"text": "-FilmFinder()",
@@ -273,7 +290,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 693,
-											"top": 945,
+											"top": 960,
 											"width": 203.404296875,
 											"height": 13,
 											"text": "+getInstance(): FilmFinder",
@@ -282,7 +299,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 688,
-									"top": 925,
+									"top": 940,
 									"width": 213.404296875,
 									"height": 38
 								},
@@ -1230,24 +1247,7 @@
 											"top": 1157,
 											"width": 236.63427734375,
 											"height": 13,
-											"text": "+watchList: List<string>",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAFt0DgQvO0z93M=",
-											"_parent": {
-												"$ref": "AAAAAAFtiCDdf47QfVM="
-											},
-											"model": {
-												"$ref": "AAAAAAFt0DgQgu0wkoE="
-											},
-											"font": "Arial;13;0",
-											"left": 765,
-											"top": 1172,
-											"width": 236.63427734375,
-											"height": 13,
-											"text": "+searchHistory: List<SearchConstraints>",
+											"text": "+watchList: List<Movie>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1255,7 +1255,7 @@
 									"left": 760,
 									"top": 1137,
 									"width": 246.63427734375,
-									"height": 53
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -1278,35 +1278,18 @@
 											},
 											"font": "Arial;13;0",
 											"left": 765,
-											"top": 1195,
+											"top": 1180,
 											"width": 236.63427734375,
 											"height": 13,
 											"text": "+getMovieData()",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAFtiCYUiI9Bek0=",
-											"_parent": {
-												"$ref": "AAAAAAFtiCDdf47RhfA="
-											},
-											"model": {
-												"$ref": "AAAAAAFtiCYURo8+oBw="
-											},
-											"font": "Arial;13;0",
-											"left": 765,
-											"top": 1210,
-											"width": 236.63427734375,
-											"height": 13,
-											"text": "+updateReviewScores()",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 760,
-									"top": 1190,
+									"top": 1175,
 									"width": 246.63427734375,
-									"height": 38
+									"height": 23
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -2860,23 +2843,6 @@
 									"subViews": [
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAFt1jIR0X3BbGI=",
-											"_parent": {
-												"$ref": "AAAAAAFt1XAEnEkhciI="
-											},
-											"model": {
-												"$ref": "AAAAAAFt1jIRjH2yK6o="
-											},
-											"font": "Arial;13;0",
-											"left": 949,
-											"top": 440,
-											"width": 194.720703125,
-											"height": 13,
-											"text": "+GetPreviousSearchConstraints()",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
 											"_id": "AAAAAAFt1jK2In9EnIA=",
 											"_parent": {
 												"$ref": "AAAAAAFt1XAEnEkhciI="
@@ -2886,7 +2852,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 949,
-											"top": 455,
+											"top": 440,
 											"width": 194.720703125,
 											"height": 13,
 											"text": "+SendConstraintsToSearch()",
@@ -2897,7 +2863,7 @@
 									"left": 944,
 									"top": 435,
 									"width": 204.720703125,
-									"height": 38
+									"height": 23
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -5765,7 +5731,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFtiB9hU42ivgo="
 							},
-							"name": "database",
+							"name": "filmfinder",
 							"visibility": "private",
 							"type": {
 								"$ref": "AAAAAAFtiB9hU42ivgo="
@@ -5777,7 +5743,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFtiB9hU42ivgo="
 							},
-							"name": "movies",
+							"name": "MasterList",
 							"type": "List<Movie>"
 						},
 						{
@@ -5786,7 +5752,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFtiB9hU42ivgo="
 							},
-							"name": "profile",
+							"name": "userprofile",
 							"type": {
 								"$ref": "AAAAAAFtiCDdfo7I9u0="
 							}
@@ -5801,6 +5767,15 @@
 							"type": {
 								"$ref": "AAAAAAFtiCAfXY5K7cA="
 							}
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFt+TPbN0mHSIs=",
+							"_parent": {
+								"$ref": "AAAAAAFtiB9hU42ivgo="
+							},
+							"name": "ResultsList",
+							"type": "List<Movie>"
 						}
 					],
 					"operations": [
@@ -6698,16 +6673,7 @@
 								"$ref": "AAAAAAFtiCDdfo7I9u0="
 							},
 							"name": "watchList",
-							"type": "List<string>"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFt0DgQgu0wkoE=",
-							"_parent": {
-								"$ref": "AAAAAAFtiCDdfo7I9u0="
-							},
-							"name": "searchHistory",
-							"type": "List<SearchConstraints>"
+							"type": "List<Movie>"
 						}
 					],
 					"operations": [
@@ -6718,14 +6684,6 @@
 								"$ref": "AAAAAAFtiCDdfo7I9u0="
 							},
 							"name": "getMovieData"
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFtiCYURo8+oBw=",
-							"_parent": {
-								"$ref": "AAAAAAFtiCDdfo7I9u0="
-							},
-							"name": "updateReviewScores"
 						}
 					]
 				},
@@ -6979,14 +6937,6 @@
 						}
 					],
 					"operations": [
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFt1jIRjH2yK6o=",
-							"_parent": {
-								"$ref": "AAAAAAFt1XAEnEkY4/A="
-							},
-							"name": "GetPreviousSearchConstraints"
-						},
 						{
 							"_type": "UMLOperation",
 							"_id": "AAAAAAFt1jK16381WaQ=",
