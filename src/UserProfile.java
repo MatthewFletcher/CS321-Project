@@ -16,7 +16,7 @@ public class UserProfile {
     /**
      * Default Constructor for an empty UserProfile object.
      */
-    private UserProfile ()
+    public UserProfile ()
     {
       m_name = "";
       m_watchList = new ArrayList<Movie>(); //Creates storage for movies
@@ -25,7 +25,7 @@ public class UserProfile {
    /**
     * Overloaded Constructor
     */
-   private UserProfile (String name, ArrayList<Movie> watchList)
+   public UserProfile (String name, ArrayList<Movie> watchList)
    {
       m_name = name;
       m_watchList = watchList;
