@@ -9,64 +9,75 @@ import java.util.*;
  * This class is used to hold and display the movie information to the user.
  * The class extends JPanel so it can be a component within the MainView, alongside the SearchView.
  *
- * @author Will Thomason
  */
 
-public class ResultsView extends JPanel implements ListSelectionListener {
-
-    String m_titles[]; //contains title of movies passed to ResultsView
-    static JList m_results;   //JList used to display movie titles
-    static JTextArea m_movieInfo; //JTextArea used to display complete movie info
+public class ResultsView extends JPanel
+{
+    private static ResultsView instance = null;
+    private static JList m_results;   //JList used to display movie titles
+    private static JTextArea m_movieInfo; //JTextArea used to display complete movie info
 
     /**
      * Constructor function used to initialize the ResultsView JPanel
      */
-    public ResultsView()
+    private ResultsView()
     {
-        setSize(500, 400);
         setBorder(BorderFactory.createLineBorder(Color.black));
         setVisible(true);
     }
 
+    public static ResultsView getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ResultsView();
+        }
+
+        return instance;
+    }
     /**
+     *  This function takes the ArrayList of Movies that it is given and creates an array of Movie.getTitle() and Movie.toString() results.
+     *  It then creates a JList and JTextArea that are used to display this information and update whenever the user selects a new item from the JList
      *
-     * @param movies: ArrayList containing movie titles passed in by FilmFinder
-     *
-     * TO BE COMPLETED: once the functionality is in FilmFinder, pass in a second ArrayList containing results of Movie.toString() for result movies
+     * @param passMovies: ArrayList containing Movie objects whose info needs to be displayed
      *
      */
-    public void showMoviesText(ArrayList<String> movies)
+    public void showMoviesText(ArrayList<Movie> passMovies)
     {
 
-        ResultsView info = new ResultsView(); //instance of ResultsView used for the ListSelectionListener
+        int i = 0; //used to iterate through arrays when adding new objects
+        String m_titles[] = new String[passMovies.size()]; //create String array of movie titles to put in the JList
+        String m_descriptions[] = new String[passMovies.size()]; //create String array to hold movie toString data
 
-        String m_titles[] = new String[movies.size()]; //create String array of movie titles to put in the JList
+        for (Movie pass : passMovies) {
+            m_titles[i] = pass.getTitle(); //copy the title of every Movie in the ArrayList to the array of titles
+            i++;
+        }
 
-        for (int i = 0; i < movies.size(); i++) {
-            m_titles[i] = movies.get(i); //copy from the ArrayList to the array
+        i = 0;
+        for (Movie pass : passMovies)
+        {
+            m_descriptions[i] = pass.toString(); //copy the toString() results o  every Movie in the ArrayList to the array of descriptions
+            i++;
         }
 
         m_results = new JList(m_titles); //create new JList with SelectionListener and add it to the JPanel
-        m_results.setSelectedIndex(0);
-        m_results.addListSelectionListener(info);
-        add(m_results);
-
         m_movieInfo = new JTextArea(); //create new JTextArea to display the information for the selected movie
-        m_movieInfo.setText((String) m_results.getSelectedValue());
-        add(m_movieInfo);
+
+        m_results.setSelectedIndex(0); //set default index for JList
+        m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
+        add(m_results); //add the JList to the JPanel
+        add(m_movieInfo); //add the JTextAre to the JPanel
+
+        m_results.addListSelectionListener(new ListSelectionListener()
+        {
+            public void valueChanged(ListSelectionEvent arg0) {
+                if (!arg0.getValueIsAdjusting()) {
+                    m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //whenever a new item in the JList is selected, change the data displayed within the JTextArea
+                }
+            }
+        });
 
     }
-
-    /**
-     *
-     * @param event: used to listen for changes to which value within the m_titles JList has been selected
-     *
-     * TO BE COMPLETED: once FilmFinder can pass ArrayList of Movie.toString() results, have text set to appropriate index from that ArrayList
-     */
-    public void valueChanged(ListSelectionEvent event)
-    {
-        m_movieInfo.setText((String) m_results.getSelectedValue());
-    }
-
 
 }

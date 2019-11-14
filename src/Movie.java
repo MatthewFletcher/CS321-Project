@@ -23,11 +23,14 @@ class Movie implements java.io.Serializable{
         m_title = title;
         m_year = year;
         m_director = director;
+        m_actors = new ArrayList<String>();
         m_rating = rating;
         m_genre = genre;
 
         for (String actor: actors)
+        {
             m_actors.add(actor);
+        }
     }
 
     public String toString()
