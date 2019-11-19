@@ -23,67 +23,61 @@ import java.util.ArrayList;
 public class FilmFinder {
  //Attributes
     private static FilmFinder   instance = null; //reference to itself
-    private ArrayList<Movie>    m_MasterList;
-    private UserProfile         m_UserProfile;
-    private Scraper             m_Scraper;
-    private ArrayList<Movie>    m_ResultsList;
+    private ArrayList<Movie>    m_MasterList;   //List of every movie from data file
+    private UserProfile         m_UserProfile;  //reference to UserProfile
+    private Scraper             m_Scraper;      //reference to Scraper
+    private ArrayList<Movie>    m_ResultsList;  //List of most recent movie search
 
  //Methods
+
     /**
-     * A constructor for an empty FilmFinder object. Probably will never be used.
+     * Private Constructor. Call by getInstance(). FilmFinder's remaining field values will be assigned
+     * by other functions called outside of FilmFinder.
      */
     private FilmFinder ()
     {
 
+
+        m_MasterList = new ArrayList<Movie>(); //Creates storage for movies
+        m_UserProfile = new UserProfile();
+        m_Scraper = null;
+        m_ResultsList = new ArrayList<Movie>(); //Create storage for storing results generated after SearchBuilder interaction.
+
     }
 
-    //Methods
     /**
-     * Overloaded private Constructor. Assumes Scraper is passing list of movie objects and UserProfile data (if any) to itself at start
-     * of program. It is called indirectly by calling getInstance(Params...)
-     *
-     * @param masterList: ArrayList containing all Movie objects stored in the XML/data file.
-     * @param userName: String containing the name of the user of the software.
-     * @param watchList: ArrayList containing all movies in the WatchList if one exists.
-     * @param scraper: reference to the instance of the Scraper class.
+     * STUB. Calls data scraper to create a new movie, and return to caller. We need to decide on a function for Scraper.
+     * @return returns a newly create movie object.
      */
-    private FilmFinder (ArrayList<Movie> masterList, String userName, ArrayList<Movie> watchList, Scraper scraper)
+    public Movie createMovie()
     {
-        instance = this; //gives FilmFinder a reference to itself.
-        m_MasterList = masterList;
-        m_UserProfile = new UserProfile(userName, watchList);
-        m_Scraper = scraper;
-        m_ResultsList = new ArrayList<Movie>(); //Create storage for storing results generated after SearchBuilder
-        //interaction.
+        //INSERT call to Scraper to get movie data
 
+        return new Movie();
     }
 
-
     /**
-     * Singleton method to create one instance of FilmFinder using overloaded constructor and return it to the caller.
-     * Assumes Scraper is passing list of movie objects and UserProfile data (if any) to itself at start
-     * of program.
-     *
-     * @param masterList: ArrayList containing all Movie objects stored in the XML/data file.
-     * @param userName: String containing the name of the user of the software.
-     * @param watchList: ArrayList containing all movies in the WatchList if one exists.
-     * @param scraper: reference to the instance of the Scraper class.
+     * STUB. Build the master list of movies at the beginning of program using createMovie()
      */
-    public static FilmFinder getInstance(ArrayList<Movie> masterList, String userName, ArrayList<Movie> watchList, Scraper scraper)
+    public void createMasterList()
     {
-        if (instance == null)
-        {
-            instance = new FilmFinder(masterList, userName, watchList, scraper);
-        }
+         //INSERT loop to create and add all data file movies gathered by Scraper into the Master list
 
-        return instance;
     }
 
+
     /**
-     * Overloaded Singleton method to return a reference to FilmFinder. Use it only after using the other getInstance(params...).
+     * Singleton method to create one instance of FilmFinder using constructor and return it to the caller. If one instance
+     * already exists it returns a reference to that instance instead. Allows only one instance of FilmFinder to exist.
+     * @return returns a reference to the one and only instance of FilmFinder.
      */
     public static FilmFinder getInstance()
     {
+        if (instance == null)
+        {
+            instance = new FilmFinder();
+        }
+
         return instance;
     }
 
@@ -107,5 +101,14 @@ public class FilmFinder {
        resultsView.showMoviesText(m_ResultsList);
 
    }
+
+    /**
+     * Allows the m_Scraper attribute to be assigned. This function is needed since the constructor is private.
+     */
+    public void setScraperReference(Scraper scraper)
+    {
+        m_Scraper = scraper;
+    }
 }
+
 
