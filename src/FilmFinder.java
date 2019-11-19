@@ -11,7 +11,10 @@ import java.util.ArrayList;
  * then gets passed to the ResultsView object to be displayed in the GUI. This class also
  * interacts with the UserProfile object (which is used to store the WatchList) and collects
  * the updated WatchList to make the appropriate changes to the Database via
- * DatabaseUpdater when the program is terminated.
+ * DatabaseUpdater when the program is terminated. (Quoted from Design Doc)
+ *
+ * Note: I will probably update the description above since its function has deviated a bit from the original design
+ *      in that it is not actively building its own lists from SearchBuilder's instructions.
  *
  * @author bradley bowen
  *
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 
 public class FilmFinder {
  //Attributes
-    private FilmFinder          m_FilmFinder; //reference to itself
+    private static FilmFinder   instance = null; //reference to itself
     private ArrayList<Movie>    m_MasterList;
     private UserProfile         m_UserProfile;
     private Scraper             m_Scraper;
@@ -27,75 +30,82 @@ public class FilmFinder {
 
  //Methods
     /**
-     * A constructor for an empty FilmFinder object.
+     * A constructor for an empty FilmFinder object. Probably will never be used.
      */
-    public FilmFinder ()
+    private FilmFinder ()
     {
-        m_FilmFinder = this; //gives FilmFinder a reference to itself.
-       m_MasterList = new ArrayList<Movie>();
-       m_UserProfile = new UserProfile();
-       m_ResultsList = new ArrayList<Movie>(); //storage.
-
-       //This assumes Scraper is created in main program.
 
     }
 
-   //Methods
-   /**
-    * Overloaded Constructor. Assumes Scraper is passing list of movie objects and UserProfile data (if any) to itself at start
-    * of program.
-    */
-   public FilmFinder (ArrayList<Movie> masterList, String userName, ArrayList<Movie> watchList,
-                       Scraper scraper)
-   {
-      m_FilmFinder = this; //gives FilmFinder a reference to itself.
-      m_MasterList = masterList;
-      m_UserProfile = new UserProfile(userName, watchList); //if no profile userName passed in
-                                                            // should be "" and watchList empty.
-      m_Scraper = scraper;
-      m_ResultsList = new ArrayList<Movie>(); //Create storage for storing results generated after SearchBuilder
-                                             //interaction.
+    //Methods
+    /**
+     * Overloaded private Constructor. Assumes Scraper is passing list of movie objects and UserProfile data (if any) to itself at start
+     * of program. It is called indirectly by calling getInstance(Params...)
+     *
+     * @param masterList: ArrayList containing all Movie objects stored in the XML/data file.
+     * @param userName: String containing the name of the user of the software.
+     * @param watchList: ArrayList containing all movies in the WatchList if one exists.
+     * @param scraper: reference to the instance of the Scraper class.
+     */
+    private FilmFinder (ArrayList<Movie> masterList, String userName, ArrayList<Movie> watchList, Scraper scraper)
+    {
+        instance = this; //gives FilmFinder a reference to itself.
+        m_MasterList = masterList;
+        m_UserProfile = new UserProfile(userName, watchList);
+        m_Scraper = scraper;
+        m_ResultsList = new ArrayList<Movie>(); //Create storage for storing results generated after SearchBuilder
+        //interaction.
 
-   }
+    }
+
 
     /**
-     * A constructor for an empty student object.
+     * Singleton method to create one instance of FilmFinder using overloaded constructor and return it to the caller.
+     * Assumes Scraper is passing list of movie objects and UserProfile data (if any) to itself at start
+     * of program.
+     *
+     * @param masterList: ArrayList containing all Movie objects stored in the XML/data file.
+     * @param userName: String containing the name of the user of the software.
+     * @param watchList: ArrayList containing all movies in the WatchList if one exists.
+     * @param scraper: reference to the instance of the Scraper class.
      */
-    public FilmFinder getInstance()
+    public static FilmFinder getInstance(ArrayList<Movie> masterList, String userName, ArrayList<Movie> watchList, Scraper scraper)
     {
-        return this; //returns a reference to this FilmFinder object
+        if (instance == null)
+        {
+            instance = new FilmFinder(masterList, userName, watchList, scraper);
+        }
+
+        return instance;
     }
 
+    /**
+     * Overloaded Singleton method to return a reference to FilmFinder. Use it only after using the other getInstance(params...).
+     */
+    public static FilmFinder getInstance()
+    {
+        return instance;
+    }
+
+
    /**
-    * Receives data from SearchBuilder class, and then creates the set of movies found.
+    * Receives list of movies found by the SearchBuilder class, updates m_resultsList, and finally passes the list to ResultsView to be displayed.
     * Currently, the format of the data received from SearchBuilder is unclear to me.
-    * Finally, it passes this list in String format to ResultsList to be displayed.
     */
-   public ArrayList<String> createResultsList(ArrayList<String> searchData)
+   public void createResultsList(ArrayList<Movie> searchResults)
    {
       m_ResultsList.clear(); //clears all previous search results
 
-      //PseudoCode
-      //while(Not Done)
-      //{
-      //   m_ResultsList.add(m_MasterList.get())
-      //}
+       for (Movie m : searchResults) { // iterate through the movies found by SearchBuilder's search, and add them to m_ResultsList
+           m_ResultsList.add(m);
+       }
 
-      //Convert Movie objects into Strings
-      //toString() FORMAT: String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5, Genre: %s",
-      //                                  m_title, m_year, m_director, actors, m_rating, m_genre);
-      ArrayList<String> stringResults = new ArrayList<String>();
-      //PseudoCode
-      //while(Not Done)
-      //{
-      //    Movie temp;
-      // temp = m_ResultsList.get()
-      //   stringResults.add(temp.toString())
-      //}
+        //Get the instance of ResultsView to pass it the results.
+       ResultsView resultsView = ResultsView.getInstance();
 
-      return stringResults; //Assuming it will be used something like this:
-      //                         SearchBuilder calls ResultsView.setResults = FilmFinder.createResultsList(searchData);
-      //
+       //Passes the movie list result from the search to ResultsView
+       resultsView.showMoviesText(m_ResultsList);
 
    }
 }
+
