@@ -1,8 +1,8 @@
-CC=javac
+JC=javac
 FILES=$(wildcard *.java)
 
-main: *.java
-	$(CC) $(FILES)
+default: *.java
+	$(JC) $(FILES)
 
 clean:
-	rm *.class
+	$(RM) *.class
