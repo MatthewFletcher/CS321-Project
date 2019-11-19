@@ -9,12 +9,8 @@ public class Scraper{
     {
 
         System.out.println("SCRAPING");
-        return Movie m;
-    }
-    public static void main(String args[])
-    {
-        System.out.println("Scraper main.");
-        return;
+
+        return new Movie();
     }
 }
 
