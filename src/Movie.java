@@ -1,8 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.io.*;
 
 
-class Movie implements java.io.Serializable{
+class Movie implements Serializable{
 
     private String m_title;
     private Integer m_year;

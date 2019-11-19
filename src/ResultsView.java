@@ -1,7 +1,8 @@
 import javax.swing.*;
-import javax.swing.event.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Class name: ResultsView
@@ -14,16 +15,28 @@ import java.util.*;
 public class ResultsView extends JPanel
 {
     private static ResultsView instance = null;
-    private static JList m_results;   //JList used to display movie titles
-    private static JTextArea m_movieInfo; //JTextArea used to display complete movie info
+    private JList m_results;   //JList used to display movie titles
+    private JTextArea m_movieInfo; //JTextArea used to display complete movie info
 
     /**
      * Constructor function used to initialize the ResultsView JPanel
      */
     private ResultsView()
     {
-        setBorder(BorderFactory.createLineBorder(Color.black));
-        setVisible(true);
+        setLayout(null);
+        setBackground(Color.GRAY);
+        setBounds(277,5, 505, 453);
+        setBorder(BorderFactory.createLineBorder(Color.black, 3));
+
+        m_results = new JList();
+        m_results.setBounds(20, 20, 220, 410);
+        m_results.setBackground(Color.LIGHT_GRAY);
+        add(m_results);
+
+        m_movieInfo = new JTextArea();
+        m_movieInfo.setBounds(263, 220, 220, 210);
+        m_movieInfo.setBackground(Color.LIGHT_GRAY);
+        add(m_movieInfo);
     }
 
     public static ResultsView getInstance()
