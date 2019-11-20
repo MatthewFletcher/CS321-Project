@@ -1,6 +1,8 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 class Movie implements Serializable{
 
@@ -42,8 +44,23 @@ class Movie implements Serializable{
             actors += String.format("%s\n", actor);
         }
 
-
         return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5, Genre: %s", m_title, m_year, m_director, actors, m_rating, m_genre);
+    }
+
+    public  JSONObject toJSON()
+    {
+        JSONObject obj = new JSONObject();
+        try
+        {
+            obj.put("title",m_title) ;
+            obj.put("director",m_director) ;
+            obj.put("year",m_year) ;
+            
+        }
+
+        catch (Exception e) {e.printStackTrace();}
+
+        return obj;
     }
 
     public String getTitle()
