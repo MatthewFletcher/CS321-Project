@@ -28,15 +28,15 @@ public class ResultsView extends JPanel
         setBounds(277,5, 505, 453);
         setBorder(BorderFactory.createLineBorder(Color.black, 3));
 
-        m_results = new JList();
+        String initialize[] = new String[1];
+        m_results = new JList(initialize);
         m_results.setBounds(20, 20, 220, 410);
         m_results.setBackground(Color.LIGHT_GRAY);
-        add(m_results);
 
         m_movieInfo = new JTextArea();
         m_movieInfo.setBounds(263, 220, 220, 210);
         m_movieInfo.setBackground(Color.LIGHT_GRAY);
-        add(m_movieInfo);
+        m_movieInfo.setEditable(false);
     }
 
     public static ResultsView getInstance()
@@ -74,13 +74,15 @@ public class ResultsView extends JPanel
             i++;
         }
 
-        m_results = new JList(m_titles); //create new JList with SelectionListener and add it to the JPanel
-        m_movieInfo = new JTextArea(); //create new JTextArea to display the information for the selected movie
-
+        m_results = new JList(m_titles);
+        m_results.setBounds(20, 20, 220, 410);
+        m_results.setBackground(Color.LIGHT_GRAY);
         m_results.setSelectedIndex(0); //set default index for JList
-        m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
         add(m_results); //add the JList to the JPanel
-        add(m_movieInfo); //add the JTextAre to the JPanel
+
+
+        m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
+        add(m_movieInfo);
 
         m_results.addListSelectionListener(new ListSelectionListener()
         {
