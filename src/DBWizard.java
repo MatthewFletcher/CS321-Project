@@ -1,22 +1,35 @@
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import java.io.File;
-
 import java.io.*;
-
 import java.util.ArrayList;
-
-
+import java.io.FileNotFoundException;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 public class DBWizard{
-    
+        
+    public static void writeDB(ArrayList<Movie> ml)
+    {
+        JSONArray list = new JSONArray();
+        JSONObject obj = new JSONObject();
+
+        for (Movie m:ml)
+        {
+            list.add(m.toJSON());
+            
+        }
+        obj.put("MovieList", list);
+
+        try(FileWriter file =  new FileWriter("mydb.json"))
+        {
+            file.write(obj.toString());
+            file.flush();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
 
     public static void createSerial(ArrayList<Movie> l)
     {
@@ -45,7 +58,7 @@ public class DBWizard{
     public static void main(String args[])
     {
          
-        ArrayList<Movie> MovieList = new ArrayList<>();
+        ArrayList<Movie> MovieList = new ArrayList<Movie>();
 
         ArrayList<String> temp = new ArrayList<>();
         temp.add("Bob Marley");
@@ -59,10 +72,15 @@ public class DBWizard{
         {
             System.out.println(m);
             System.out.println();
+
         }
 
-        createSerial(MovieList);
+        writeDB(MovieList);
+        
 
+//        createSerial(MovieList);
+            
+        
         return;
     }
 }
