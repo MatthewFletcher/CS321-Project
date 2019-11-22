@@ -37,14 +37,13 @@ class Movie implements Serializable{
 
     public String toString()
     {
-
-        String actors = "\n";
+        String actorstr = "\n";
         for (String actor: m_actors)
         {
-            actors += String.format("%s\n", actor);
+            actorstr += String.format("%s\n", actor);
         }
 
-        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5, Genre: %s", m_title, m_year, m_director, actors, m_rating, m_genre);
+        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5, Genre: %s", m_title, m_year, m_director, actorstr, m_rating, m_genre);
     }
 
     public  JSONObject toJSON()
@@ -55,7 +54,18 @@ class Movie implements Serializable{
             obj.put("title",m_title) ;
             obj.put("director",m_director) ;
             obj.put("year",m_year) ;
-            
+
+            JSONArray actors = new JSONArray();
+
+            for (String actor: m_actors)
+            {
+                actors.add(actor);
+            }
+            obj.put("ActorList", actors);
+
+
+
+
         }
 
         catch (Exception e) {e.printStackTrace();}
