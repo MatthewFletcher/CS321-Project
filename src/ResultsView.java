@@ -1,7 +1,8 @@
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Image;
 import java.util.ArrayList;
 
 /**
@@ -14,9 +15,20 @@ import java.util.ArrayList;
 
 public class ResultsView extends JPanel
 {
+    /**
+     * static ResultsView instance- keeps track of ResultsView instance for Singleton implementation
+     * JList m_results- used to display list of Movies found during the search
+     * JTextArea m_movieInfo- displays all information about a Movie object (title, actors, director, etc.)
+     * JLabel m_posterSpace- used to display the poster for the selected Movie
+     * String m_posterLocation- contains the filepath to the poster for the selected Movie
+     * Image m_posterScale- used to hold a copy of the poster that has been scaled to the size of m_posterSpace
+     */
     private static ResultsView instance = null;
-    private JList m_results;   //JList used to display movie titles
-    private JTextArea m_movieInfo; //JTextArea used to display complete movie info
+    private JList m_results;
+    private JTextArea m_movieInfo;
+    private JLabel m_posterSpace;
+    private String m_posterLocation;
+    private Image m_posterScale;
 
     /**
      * Constructor function used to initialize the ResultsView JPanel
@@ -28,8 +40,7 @@ public class ResultsView extends JPanel
         setBounds(277,5, 505, 453);
         setBorder(BorderFactory.createLineBorder(Color.black, 3));
 
-        String initialize[] = new String[1];
-        m_results = new JList(initialize);
+        m_results = new JList();
         m_results.setBounds(20, 20, 220, 410);
         m_results.setBackground(Color.LIGHT_GRAY);
 
@@ -37,8 +48,15 @@ public class ResultsView extends JPanel
         m_movieInfo.setBounds(263, 220, 220, 210);
         m_movieInfo.setBackground(Color.LIGHT_GRAY);
         m_movieInfo.setEditable(false);
+
+        m_posterSpace = new JLabel();
+        m_posterSpace.setBounds(263, 20, 150, 190);
+        add(m_posterSpace);
     }
 
+    /**
+     * This function returns the instance of ResultsView. If no instance exists, then one is created.
+     */
     public static ResultsView getInstance()
     {
         if (instance == null)
@@ -50,13 +68,13 @@ public class ResultsView extends JPanel
     }
     /**
      *  This function takes the ArrayList of Movies that it is given and creates an array of Movie.getTitle() and Movie.toString() results.
-     *  It then creates a JList and JTextArea that are used to display this information and update whenever the user selects a new item from the JList
+     *  It then uses m_results to display the titles of these Movies.
+     *  Whenever a new item from m_results is selected, m_movieInfo and m_posterSpace are updated with the information and poster for that Movie
      *
      * @param passMovies: ArrayList containing Movie objects whose info needs to be displayed
      *
      */
-    public void showMoviesText(ArrayList<Movie> passMovies)
-    {
+    public void showMoviesText(ArrayList<Movie> passMovies) {
 
         int i = 0; //used to iterate through arrays when adding new objects
         String m_titles[] = new String[passMovies.size()]; //create String array of movie titles to put in the JList
@@ -74,7 +92,7 @@ public class ResultsView extends JPanel
             i++;
         }
 
-        m_results = new JList(m_titles);
+        m_results = new JList(m_titles); //create new list using titles from passMovies
         m_results.setBounds(20, 20, 220, 410);
         m_results.setBackground(Color.LIGHT_GRAY);
         m_results.setSelectedIndex(0); //set default index for JList
@@ -84,15 +102,35 @@ public class ResultsView extends JPanel
         m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
         add(m_movieInfo);
 
+
+        m_posterLocation = new String("images/");
+        m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll(" ", "_"); //create the filepath to find the poster in the images folder
+        m_posterLocation += ".jpg";
+
+        ImageIcon poster = new ImageIcon(m_posterLocation);
+        m_posterScale = poster.getImage();
+        m_posterScale = m_posterScale.getScaledInstance(150, 190, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
+
+        m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+
         m_results.addListSelectionListener(new ListSelectionListener()
         {
-            public void valueChanged(ListSelectionEvent arg0) {
+            public void valueChanged(ListSelectionEvent arg0) { //whenever a new Movie in the JList is selected...
                 if (!arg0.getValueIsAdjusting()) {
-                    m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //whenever a new item in the JList is selected, change the data displayed within the JTextArea
+                    m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //..change the data displayed within the JTextArea...
+
+                    m_posterLocation = "images/";
+                    m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll(" ", "_"); //...find the filepath for the new selection's poster...
+                    m_posterLocation += ".jpg";
+
+                    ImageIcon poster = new ImageIcon(m_posterLocation);
+                    m_posterScale = poster.getImage();
+                    m_posterScale = m_posterScale.getScaledInstance(150, 190, Image.SCALE_SMOOTH); //...scale the new poster...
+
+                    m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //..and display it
                 }
             }
         });
-
     }
 
 }
