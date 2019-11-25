@@ -81,26 +81,44 @@ public class FilmFinder {
         return instance;
     }
 
+    /**
+     * Gets MasterMovie list so SearchBuilder can search through it
+     * @return returns a reference to the the list containing all movies
+     */
+    public ArrayList<Movie> getMasterList()
+    {
+        return m_MasterList;
+    }
 
-   /**
-    * Receives list of movies found by the SearchBuilder class, updates m_resultsList, and finally passes the list to ResultsView to be displayed.
-    * Currently, the format of the data received from SearchBuilder is unclear to me.
-    */
-   public void createResultsList(ArrayList<Movie> searchResults)
-   {
-      m_ResultsList.clear(); //clears all previous search results
+    /**
+     * Gets ResultsList so SearchBuilder can add movies to it while searching
+     * @return returns a reference to the the list containing recent search results
+     */
+    public ArrayList<Movie> getResultsList()
+    {
+        return m_ResultsList;
+    }
 
-       for (Movie m : searchResults) { // iterate through the movies found by SearchBuilder's search, and add them to m_ResultsList
-           m_ResultsList.add(m);
-       }
+
+    /**
+     * Receives list of movies found by the SearchBuilder class, updates m_resultsList, and finally passes the list to ResultsView to be displayed.
+     * Currently, the format of the data received from SearchBuilder is unclear to me.
+     */
+    public void passResultsList()
+    {
+        ArrayList<Movie> passMovies = new ArrayList<Movie>();
+
+        for (Movie m : m_ResultsList) { // iterate through the ResultsList and then passes to ResultsView
+            passMovies.add(m);
+        }
 
         //Get the instance of ResultsView to pass it the results.
-       ResultsView resultsView = ResultsView.getInstance();
+        ResultsView resultsView = ResultsView.getInstance();
 
-       //Passes the movie list result from the search to ResultsView
-       resultsView.showMoviesText(m_ResultsList);
+        //Passes the movie list result from the search to ResultsView
+        resultsView.showMoviesText(passMovies);
 
-   }
+    }
 
     /**
      * Allows the m_Scraper attribute to be assigned. This function is needed since the constructor is private.
@@ -109,6 +127,17 @@ public class FilmFinder {
     {
         m_Scraper = scraper;
     }
+
+    /**
+     * Loads test data into MasterList so We can test search function in searchBuilder
+     */
+    public void setMasterList(ArrayList<Movie> testList)
+    {
+        for (Movie m : testList) { // Set MasterList
+            m_MasterList.add(m);
+        }
+    }
 }
+
 
 
