@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
+import java.io.FileReader;
+import java.util.Iterator;
+import org.json.simple.parser.JSONParser;
+
+
 class Movie implements Serializable{
 
     private String m_title;
@@ -17,6 +22,20 @@ class Movie implements Serializable{
     //Default constructor
     public Movie()
     {
+    }
+
+    //Constructor from JSON object
+    public Movie(JSONObject j)
+    {
+          System.out.println(j);
+          m_title = (String) j.get("title");	        
+          m_director = (String) j.get("director");
+          Long o = (Long) j.get("year");
+          m_year  = new Integer(o.intValue());
+          ArrayList<String> m_actors  = (ArrayList<String>)j.get("ActorList");
+          System.out.printf("Year: %d\n", m_year);
+          //JSONArray actorList = (JSONArray) j.get("ActorList");
+
     }
 
     //Overloaded constructor
@@ -53,7 +72,7 @@ class Movie implements Serializable{
         {
             obj.put("title",m_title) ;
             obj.put("director",m_director) ;
-            obj.put("year",m_year) ;
+            obj.put("year", new Integer(m_year)) ;
 
             JSONArray actors = new JSONArray();
 
@@ -62,9 +81,6 @@ class Movie implements Serializable{
                 actors.add(actor);
             }
             obj.put("ActorList", actors);
-
-
-
 
         }
 
