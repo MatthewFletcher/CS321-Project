@@ -1,6 +1,6 @@
 JC=javac
 FILES=$(wildcard *.java)
-FLAGS=-Xlint:unchecked
+FLAGS=-Xlint:unchecked -Xlint:deprecation
 
 default: *.java
 	$(JC) $(FILES)
