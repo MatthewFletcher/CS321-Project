@@ -1,12 +1,18 @@
-import java.io.File;
 import java.io.*;
-import java.util.ArrayList;
+import java.io.File;
 import java.io.FileNotFoundException;
-import org.json.simple.JSONObject;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Iterator;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class DBWizard{
-        
+
+    public static final String DBNAME = "mydb.json";
+
     public static void writeDB(ArrayList<Movie> ml)
     {
         JSONArray list = new JSONArray();
@@ -15,11 +21,11 @@ public class DBWizard{
         for (Movie m:ml)
         {
             list.add(m.toJSON());
-            
+
         }
         obj.put("MovieList", list);
 
-        try(FileWriter file =  new FileWriter("mydb.json"))
+        try(FileWriter file =  new FileWriter(DBNAME))
         {
             file.write(obj.toString());
             file.flush();
@@ -31,56 +37,51 @@ public class DBWizard{
 
     }
 
-    public static void createSerial(ArrayList<Movie> l)
+    public static ArrayList<Movie> readDB()
     {
-        System.out.printf("Creating Serialized version\n");
-        try{
-        FileOutputStream fileOut = new FileOutputStream("./database.ser");
-         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        JSONParser parser = new JSONParser();
 
-        for (Movie m: l)
-        {
-            out.writeObject(m);
-        } 
+        ArrayList<Movie> theList = new ArrayList<Movie>();
 
-        out.close();
-        fileOut.close();
+        try {
+            Object obj = parser.parse(new FileReader(DBNAME));
+            //
+            //Read JSON file
+            JSONObject jsonObject = (JSONObject) obj;
+            System.out.println("jsonObject: " + jsonObject);
+            JSONArray movieList = (JSONArray) jsonObject.get("MovieList");
+
+            for (Object j : movieList)
+            {
+                System.out.printf("Movie: %s\n", (JSONObject)j);
+                theList.add(new Movie((JSONObject)j));
+            }
+    
+
         }
-        catch (IOException e)
-        {
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
-
+        return theList;
     }
+
 
 
 
     public static void main(String args[])
     {
-         
-        ArrayList<Movie> MovieList = new ArrayList<Movie>();
+        System.out.println("##########Reading DB");
+        ArrayList<Movie> MovieList = readDB();
 
-        ArrayList<String> temp = new ArrayList<>();
-        temp.add("Bob Marley");
-        temp.add( "Alice Snickerdoodle");
-        MovieList.add(new Movie("Movie1", 1999, "Bob Smith",temp, 4.5, "Action"));
-
-        temp.add("Barack obama");
-        MovieList.add(new Movie("Movie2", 2001, "Bob Smith",temp, 3.5, "Comedy"));
-
-        for (Movie m: MovieList)
-        {
-            System.out.println(m);
-            System.out.println();
-
-        }
-
+        System.out.println("#########Writing Movie DB");
         writeDB(MovieList);
-        
 
-//        createSerial(MovieList);
-            
-        
+
+
         return;
     }
 }
