@@ -9,12 +9,12 @@ import java.util.Iterator;
 import org.json.simple.parser.JSONParser;
 
 
-class Movie implements Serializable{
+class Movie {
 
     private String m_title;
     private Integer m_year;
     private String m_director;
-    private ArrayList<String> m_actors;
+    private ArrayList<String> m_actors = new ArrayList<String>();
     private Double m_rating;
     private String m_genre;
 
@@ -22,19 +22,26 @@ class Movie implements Serializable{
     //Default constructor
     public Movie()
     {
+
     }
 
     //Constructor from JSON object
     public Movie(JSONObject j)
     {
-          System.out.println(j);
-          m_title = (String) j.get("title");	        
-          m_director = (String) j.get("director");
-          Long o = (Long) j.get("year");
-          m_year  = new Integer(o.intValue());
-          ArrayList<String> m_actors  = (ArrayList<String>)j.get("ActorList");
-          System.out.printf("Year: %d\n", m_year);
-          //JSONArray actorList = (JSONArray) j.get("ActorList");
+        m_title = (String) j.get("title");	        
+        m_director = (String) j.get("director");
+        Long o = (Long) j.get("year");
+        m_year  = new Integer(o.intValue());
+        JSONArray actorList = new JSONArray();
+        actorList =  (JSONArray) j.get("ActorList");
+        
+        for (Object j_actor: actorList)
+        {
+            m_actors.add((String)j_actor);
+        }
+
+        m_genre = (String) j.get("genre"); 
+
 
     }
 
@@ -57,12 +64,13 @@ class Movie implements Serializable{
     public String toString()
     {
         String actorstr = "\n";
+
         for (String actor: m_actors)
         {
-            actorstr += String.format("%s\n", actor);
+            actorstr += String.format("\t%s\n", actor);
         }
 
-        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5, Genre: %s", m_title, m_year, m_director, actorstr, m_rating, m_genre);
+        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%sRating: %.1f/5\nGenre: %s", m_title, m_year, m_director, actorstr, m_rating, m_genre);
     }
 
     public  JSONObject toJSON()
@@ -73,6 +81,7 @@ class Movie implements Serializable{
             obj.put("title",m_title) ;
             obj.put("director",m_director) ;
             obj.put("year", new Integer(m_year)) ;
+            obj.put("genre", m_genre);
 
             JSONArray actors = new JSONArray();
 
@@ -107,6 +116,11 @@ class Movie implements Serializable{
     public ArrayList<String> getActors()
     {
         return m_actors;
+    }
+
+    public void addActor(String actor)
+    {
+        m_actors.add(actor);
     }
 
     public Double getRating()
