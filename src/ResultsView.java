@@ -94,11 +94,9 @@ public class ResultsView extends JPanel
             i++;
         }
 
-        m_results = new JList(m_titles); //create new list using titles from passMovies
-        m_results.setBounds(20, 20, 220, 410);
-        m_results.setBackground(Color.LIGHT_GRAY);
+        m_results.clearSelection();
+        m_results.setListData(m_titles);
         m_results.setSelectedIndex(0); //set default index for JList
-        add(m_results); //add the JList to the JPanel
 
 
         m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
@@ -119,6 +117,7 @@ public class ResultsView extends JPanel
         {
             public void valueChanged(ListSelectionEvent arg0) { //whenever a new Movie in the JList is selected...
                 if (!arg0.getValueIsAdjusting()) {
+                    if (m_results.getSelectedIndex() < 0) return;
                     m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //..change the data displayed within the JTextArea...
 
                     m_posterLocation = "images/";
