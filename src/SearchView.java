@@ -10,8 +10,8 @@ public class SearchView extends JPanel {
     private JLabel searchView;
     private JTextField enterTitle;
     private JButton searchByTitle;
-    private JTextField enterActor;
-    private JTextField enterYear;
+    private JTextField enterDirector;
+    private JComboBox enterYear;
     private JTextField enterGenre;
     private JButton searchByDescription;
 
@@ -35,20 +35,25 @@ public class SearchView extends JPanel {
             @Override
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
-                System.out.println(enterTitle.getText());
                 SearchBuilder.getInstance().search(new Movie(enterTitle.getText(), -1, "",
                         new ArrayList<String>(), -1d, ""));
             }
         });
         add(searchByTitle);
 
-        enterActor = new JTextField("Enter an actor's name...");
-        enterActor.setBounds(20, 180, 220, 25);
-        add(enterActor);
-        enterYear = new JTextField("Enter a year...");
+        enterDirector = new JTextField("");
+        enterDirector.setBounds(20, 180, 220, 25);
+        add(enterDirector);
+        String[] yearArray = new String[133];
+        for (int i = 0; i < 132; i ++) {
+            yearArray[i] = Integer.toString(i + 1888);
+        }
+        yearArray[132] = "None";
+        enterYear = new JComboBox(yearArray);
+        enterYear.setSelectedIndex(132);
         enterYear.setBounds(20, 220, 220, 25);
         add(enterYear);
-        enterGenre = new JTextField("Enter a genre...");
+        enterGenre = new JTextField("");
         enterGenre.setBounds(20, 260, 220, 25);
         add(enterGenre);
         searchByDescription = new JButton("Search by Description");
@@ -58,6 +63,10 @@ public class SearchView extends JPanel {
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
 
+
+
+                //SearchBuilder.getInstance().search(new Movie("", year, "",
+                       // new ArrayList<String>(), -1d, enterGenre.getText()));
             }
         });
         add(searchByDescription);
