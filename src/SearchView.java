@@ -26,6 +26,7 @@ public class SearchView extends JPanel {
         searchView.setBounds(20, 25, 220, 25);
         add(searchView);
 
+        //Searching by title
         enterTitle = new JTextField("Enter a movie title...");
         enterTitle.setBounds(20, 60, 220, 25);
         add(enterTitle);
@@ -41,6 +42,7 @@ public class SearchView extends JPanel {
         });
         add(searchByTitle);
 
+        //Searching by description
         enterDirector = new JTextField("");
         enterDirector.setBounds(20, 180, 220, 25);
         add(enterDirector);
@@ -48,7 +50,7 @@ public class SearchView extends JPanel {
         for (int i = 0; i < 132; i ++) {
             yearArray[i] = Integer.toString(i + 1888);
         }
-        yearArray[132] = "None";
+        yearArray[132] = "Any";
         enterYear = new JComboBox(yearArray);
         enterYear.setSelectedIndex(132);
         enterYear.setBounds(20, 220, 220, 25);
@@ -62,11 +64,10 @@ public class SearchView extends JPanel {
             @Override
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
-
-
-
-                //SearchBuilder.getInstance().search(new Movie("", year, "",
-                       // new ArrayList<String>(), -1d, enterGenre.getText()));
+                int year = -1;
+                if (enterYear.getSelectedItem() != "Any") year = Integer.parseInt((String)enterYear.getSelectedItem());
+                SearchBuilder.getInstance().search(new Movie("", year, enterDirector.getText(),
+                        new ArrayList<String>(), -1d, enterGenre.getText()));
             }
         });
         add(searchByDescription);
