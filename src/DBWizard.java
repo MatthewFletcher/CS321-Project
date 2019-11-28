@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -48,12 +49,10 @@ public class DBWizard{
             //
             //Read JSON file
             JSONObject jsonObject = (JSONObject) obj;
-            System.out.println("jsonObject: " + jsonObject);
             JSONArray movieList = (JSONArray) jsonObject.get("MovieList");
 
             for (Object j : movieList)
             {
-                System.out.printf("Movie: %s\n", (JSONObject)j);
                 theList.add(new Movie((JSONObject)j));
             }
     
@@ -74,14 +73,25 @@ public class DBWizard{
 
     public static void main(String args[])
     {
-        System.out.println("##########Reading DB");
-        ArrayList<Movie> MovieList = readDB();
 
-        System.out.println("#########Writing Movie DB");
-        writeDB(MovieList);
+        System.out.println("##########\nReading DB");
+        ArrayList<Movie> MovieList = readDB();
+        
+        //Get user input
+        Scanner kb = new Scanner(System.in);
+
+        System.out.println("\nPRINTING MOVIE LIST");
+        for (Movie m: MovieList)
+        {
+            System.out.println(m);
+            System.out.println(); 
+        }
+        System.out.println("END MOVIE LIST");
+
+        //writeDB(MovieList);
 
 
 
         return;
-    }
+}
 }
