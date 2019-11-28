@@ -1,11 +1,10 @@
+import java.io.FileReader;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-
-import java.io.FileReader;
 import java.util.Iterator;
+import java.util.Scanner;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 
@@ -42,8 +41,47 @@ class Movie {
 
         m_genre = (String) j.get("genre"); 
 
+    }
+
+    public static Movie createMovie()
+    {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Creating Movie");
+
+
+        System.out.print("Enter Title: ");
+        String title = reader.nextLine();
+        
+        System.out.print("Enter year: ");
+        int year = reader.nextInt();
+        reader.nextLine(); //Consume \n character
+
+        System.out.print("Enter Director: ");
+        String director = reader.nextLine();
+
+
+        System.out.print("Enter number of actors: ");
+        int numactors  = reader.nextInt();
+        reader.nextLine(); //Consume \n character
+
+        ArrayList<String> actors = new ArrayList<String>();
+        for (int i=0;i<numactors;i++)
+        {
+            System.out.printf("Enter actor %d", i+1);
+            actors.add(reader.nextLine());
+        }
+
+        System.out.print("Enter rating x.y/5: ");
+        double rating = reader.nextDouble();
+        reader.nextLine(); //Consume \n character
+        
+        System.out.print("Enter Genre: ");
+        String genre = reader.nextLine();
+
+        return new Movie(title, year, director, actors, rating, genre);
 
     }
+
 
     //Overloaded constructor
     public Movie(String title, Integer year, String director, ArrayList<String> actors, Double rating, String genre)
