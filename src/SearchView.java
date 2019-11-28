@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class SearchView extends JPanel {
 
@@ -35,6 +36,8 @@ public class SearchView extends JPanel {
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
                 System.out.println(enterTitle.getText());
+                SearchBuilder.getInstance().search(new Movie(enterTitle.getText(), -1, "",
+                        new ArrayList<String>(), -1d, ""));
             }
         });
         add(searchByTitle);
