@@ -12,12 +12,16 @@ import org.json.simple.parser.ParseException;
 
 public class DBWizard{
 
+    //Set file name 
     public static final String DBNAME = "mydb.json";
 
     //Don't shoot me for this.
     //https://stackoverflow.com/a/53226346/5763413
     //Stack overflow said to do it
     @SuppressWarnings("unchecked")
+
+
+
     public static void writeDB(ArrayList<Movie> ml)
     {
         JSONArray list = new JSONArray();
@@ -72,6 +76,11 @@ public class DBWizard{
         return theList;
     }
 
+    public void addMovie(Movie m)
+    {
+        
+    }
+
 
 
 
@@ -92,7 +101,16 @@ public class DBWizard{
         }
         System.out.println("END MOVIE LIST");
 
-        //writeDB(MovieList);
+        System.out.println("Generating new movie");
+        Movie temp = Movie.createMovie();
+        System.out.println("Generated movie:");
+        System.out.println(temp);
+
+        MovieList.add(temp);
+
+
+
+        writeDB(MovieList);
 
 
 
