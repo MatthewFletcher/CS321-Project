@@ -73,6 +73,10 @@ class Movie {
         return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%sRating: %.1f/5\nGenre: %s", m_title, m_year, m_director, actorstr, m_rating, m_genre);
     }
 
+    //Please don't shoot me for this
+    //https://stackoverflow.com/a/53226346/5763413
+    //Stack overflow said to do it
+    @SuppressWarnings("unchecked")
     public  JSONObject toJSON()
     {
         JSONObject obj = new JSONObject();

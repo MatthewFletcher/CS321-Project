@@ -14,6 +14,10 @@ public class DBWizard{
 
     public static final String DBNAME = "mydb.json";
 
+    //Don't shoot me for this.
+    //https://stackoverflow.com/a/53226346/5763413
+    //Stack overflow said to do it
+    @SuppressWarnings("unchecked")
     public static void writeDB(ArrayList<Movie> ml)
     {
         JSONArray list = new JSONArray();
@@ -22,8 +26,8 @@ public class DBWizard{
         for (Movie m:ml)
         {
             list.add(m.toJSON());
-
         }
+
         obj.put("MovieList", list);
 
         try(FileWriter file =  new FileWriter(DBNAME))
