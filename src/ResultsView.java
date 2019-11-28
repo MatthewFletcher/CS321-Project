@@ -43,11 +43,13 @@ public class ResultsView extends JPanel
         m_results = new JList();
         m_results.setBounds(20, 20, 220, 410);
         m_results.setBackground(Color.LIGHT_GRAY);
+        add(m_results);
 
         m_movieInfo = new JTextArea();
         m_movieInfo.setBounds(263, 220, 220, 210);
         m_movieInfo.setBackground(Color.LIGHT_GRAY);
         m_movieInfo.setEditable(false);
+        add(m_movieInfo);
 
         m_posterSpace = new JLabel();
         m_posterSpace.setBounds(263, 20, 150, 190);
