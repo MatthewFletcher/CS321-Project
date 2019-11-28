@@ -1,1 +1,1 @@
-{"MovieList":[{"year":1999,"director":"Bob Smith","title":"Movie1"},{"year":2001,"director":"Bob Smith","title":"Movie2"}]}
+{"MovieList":[{"year":1999,"genre":"action","director":"Bob Smith","ActorList":["Bob Smith", "Bobby Bob", "Smith Robertson"],"title":"Movie1"},{"year":2001,"director":"Bob Smith","ActorList":["Bobby Tables", "Bark Bama"],"title":"Movie2"}],"genre":"action"}
