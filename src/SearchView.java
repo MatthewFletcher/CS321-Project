@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SearchView extends JPanel {
 
@@ -22,11 +24,19 @@ public class SearchView extends JPanel {
         searchView = new JLabel("Search View");
         searchView.setBounds(20, 25, 220, 25);
         add(searchView);
+
         enterTitle = new JTextField("Enter a movie title...");
         enterTitle.setBounds(20, 60, 220, 25);
         add(enterTitle);
         searchByTitle = new JButton("Search by Title");
         searchByTitle.setBounds(20, 100, 200, 25);
+        searchByTitle.addActionListener(new ActionListener() {
+            @Override
+            //Do this on button push
+            public void actionPerformed(ActionEvent actionEvent) {
+                System.out.println(enterTitle.getText());
+            }
+        });
         add(searchByTitle);
 
         enterActor = new JTextField("Enter an actor's name...");
@@ -40,6 +50,13 @@ public class SearchView extends JPanel {
         add(enterGenre);
         searchByDescription = new JButton("Search by Description");
         searchByDescription.setBounds(20, 300, 200, 25);
+        searchByDescription.addActionListener(new ActionListener() {
+            @Override
+            //Do this on button push
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
         add(searchByDescription);
     }
 
