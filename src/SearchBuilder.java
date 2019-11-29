@@ -144,7 +144,7 @@ public class SearchBuilder {
             //search master list
             for(Movie m : filmFinder.getMasterList()) //iterates over every movie in Master list
             {
-                if( m.getTitle().toString().equals(constraints.getTitle().toString()) ) //compares Title name from Master to name VALUE in constraints
+                if( m.getTitle().toLowerCase().equals(constraints.getTitle().toLowerCase())) //compares Title name from Master to name VALUE in constraints
                     tempList.add(m); //add movie to results found
 
 
@@ -160,7 +160,7 @@ public class SearchBuilder {
             {
                 for(String a : m.getActors()) //iterates through every actor String inside movie m
                 {
-                    if( a.toString().equals(constraints.getActors().get(0)) ) //compares actor name from Master to name VALUE in constraints.Actors[0]
+                    if( a.toLowerCase().equals(constraints.getActors().get(0).toLowerCase())) //compares actor name from Master to name VALUE in constraints.Actors[0]
                         tempList.add(m); //add movie to results found
                 }
             }
@@ -185,7 +185,7 @@ public class SearchBuilder {
             //search master list
             for(Movie m : filmFinder.getMasterList()) //iterates over every movie in Master list
             {
-                if( m.getDirector().toString().equals(constraints.getDirector().toString()) ) //compares Director from Master to Director VALUE in constraints
+                if( m.getDirector().toLowerCase().equals(constraints.getDirector().toLowerCase())) //compares Director from Master to Director VALUE in constraints
                     tempList.add(m); //add movie to results found
             }
 
@@ -209,7 +209,7 @@ public class SearchBuilder {
             //search master list
             for(Movie m : filmFinder.getMasterList()) //iterates over every movie in Master list
             {
-                if( m.getGenre().toString().equals(constraints.getGenre().toString()) ) //compares Genre from Master to Genre VALUE in constraints
+                if( m.getGenre().toLowerCase().equals(constraints.getGenre().toLowerCase())) //compares Genre from Master to Genre VALUE in constraints
                     tempList.add(m); //add movie to results found
             }
 
@@ -239,7 +239,7 @@ public class SearchBuilder {
                 //search tempList
                 for(Movie m : tempListCOPY) //iterates over every movie in tempListCOPY
                 {
-                    if((  m.getTitle().toString().equals(constraints.getTitle().toString()) == false ))
+                    if((m.getTitle().equals(constraints.getTitle()) == false))
                     {
                         tempList.remove(m); //remove from original tempList
                     }
@@ -262,7 +262,7 @@ public class SearchBuilder {
                     Boolean match = false;
                     for(String a : m.getActors())
                     {
-                        if( (a.toString().equals(constraints.getActors().get(0)) ) )
+                        if( (a.equals(constraints.getActors().get(0)) ) )
                         {
                             match = true;
                         }
@@ -301,7 +301,7 @@ public class SearchBuilder {
                 //search tempList
                 for(Movie m : tempListCOPY)
                 {
-                    if( (m.getDirector().toString().equals(constraints.getDirector().toString()) ) == false)
+                    if( (m.getDirector().equals(constraints.getDirector()) ) == false)
                         tempList.remove(m);
                 }
 
@@ -335,7 +335,7 @@ public class SearchBuilder {
                 //search tempList
                 for(Movie m : tempListCOPY) //iterates over every movie in tempListCOPY
                 {
-                    if( (m.getGenre().toString().equals(constraints.getGenre().toString()) ) == false )
+                    if( (m.getGenre().equals(constraints.getGenre()) ) == false )
                         tempList.remove(m);
                 }
 
