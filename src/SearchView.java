@@ -31,7 +31,7 @@ public class SearchView extends JPanel {
         enterTitle.setBounds(20, 60, 220, 25);
         add(enterTitle);
         searchByTitle = new JButton("Search by Title");
-        searchByTitle.setBounds(20, 100, 200, 25);
+        searchByTitle.setBounds(20, 100, 220, 25);
         searchByTitle.addActionListener(new ActionListener() {
             @Override
             //Do this on button push
@@ -59,7 +59,7 @@ public class SearchView extends JPanel {
         enterGenre.setBounds(20, 260, 220, 25);
         add(enterGenre);
         searchByDescription = new JButton("Search by Description");
-        searchByDescription.setBounds(20, 300, 200, 25);
+        searchByDescription.setBounds(20, 300, 220, 25);
         searchByDescription.addActionListener(new ActionListener() {
             @Override
             //Do this on button push
