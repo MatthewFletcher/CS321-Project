@@ -13,7 +13,7 @@ import org.json.simple.parser.ParseException;
 public class DBWizard{
 
     //Set file name 
-    public static final String DBNAME = "mydb.json";
+    public static final String DBNAME = "src/mydb.json";
 
     //Don't shoot me for this.
     //https://stackoverflow.com/a/53226346/5763413
