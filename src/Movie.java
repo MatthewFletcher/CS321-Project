@@ -12,11 +12,13 @@ class Movie {
     private ArrayList<String> m_actors = new ArrayList<String>();
     private Double m_rating;
     private String m_genre;
+    private Boolean m_onWatchList;
 
 
     //Default constructor
     public Movie()
     {
+        m_onWatchList = false;
 
     }
 
