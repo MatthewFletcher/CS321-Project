@@ -113,6 +113,7 @@ public class ResultsView extends JPanel
 
 
         m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
+        m_movieInfo.setCaretPosition(0);
 
 
         String m_posterLocation = new String("images/");
