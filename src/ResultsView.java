@@ -3,6 +3,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -18,17 +20,21 @@ public class ResultsView extends JPanel
     /**
      * static ResultsView instance- keeps track of ResultsView instance for Singleton implementation
      * JList m_results- used to display list of Movies found during the search
+     * JScrollPane m_resultsPane- used to add a scrollbar to m_results
      * JTextArea m_movieInfo- displays all information about a Movie object (title, actors, director, etc.)
+     * JScrollPane m_infoPane- used to add a scrollbar to m_movieInfo
      * JLabel m_posterSpace- used to display the poster for the selected Movie
-     * String m_posterLocation- contains the filepath to the poster for the selected Movie
      * Image m_posterScale- used to hold a copy of the poster that has been scaled to the size of m_posterSpace
+     * JButton m_watchList- toggles a Movie's WatchList status
      */
     private static ResultsView instance = null;
     private JList m_results;
+    private JScrollPane m_resultsPane;
     private JTextArea m_movieInfo;
+    private JScrollPane m_infoPane;
     private JLabel m_posterSpace;
-    private String m_posterLocation;
     private Image m_posterScale;
+    private JButton m_watchList;
 
     /**
      * Constructor function used to initialize the ResultsView JPanel
@@ -41,19 +47,26 @@ public class ResultsView extends JPanel
         setBorder(BorderFactory.createLineBorder(Color.black, 3));
 
         m_results = new JList();
-        m_results.setBounds(20, 20, 220, 410);
         m_results.setBackground(Color.LIGHT_GRAY);
-        add(m_results);
+        m_resultsPane = new JScrollPane();
+        m_resultsPane.setBounds(20, 20, 220, 410);
+        m_resultsPane.setViewportView(m_results);
+        add(m_resultsPane);
 
         m_movieInfo = new JTextArea();
-        m_movieInfo.setBounds(263, 220, 220, 210);
         m_movieInfo.setBackground(Color.LIGHT_GRAY);
         m_movieInfo.setEditable(false);
-        add(m_movieInfo);
+        m_infoPane = new JScrollPane(m_movieInfo);
+        m_infoPane.setBounds(263, 220, 220, 170);
+        add(m_infoPane);
 
         m_posterSpace = new JLabel();
-        m_posterSpace.setBounds(263, 20, 150, 190);
+        m_posterSpace.setBounds(298, 20, 150, 190);
         add(m_posterSpace);
+
+        m_watchList = new JButton("Toggle WatchList Status");
+        m_watchList.setBounds(263, 400, 220, 30);
+        add(m_watchList);
     }
 
     /**
@@ -100,10 +113,9 @@ public class ResultsView extends JPanel
 
 
         m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
-        add(m_movieInfo);
 
 
-        m_posterLocation = new String("images/");
+        String m_posterLocation = new String("images/");
         m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll(" ", "_"); //create the filepath to find the poster in the images folder
         m_posterLocation += ".jpg";
 
@@ -119,8 +131,9 @@ public class ResultsView extends JPanel
                 if (!arg0.getValueIsAdjusting()) {
                     if (m_results.getSelectedIndex() < 0) return;
                     m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //..change the data displayed within the JTextArea...
+                    m_movieInfo.setCaretPosition(0);
 
-                    m_posterLocation = "images/";
+                    String m_posterLocation = "images/";
                     m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll(" ", "_"); //...find the filepath for the new selection's poster...
                     m_posterLocation += ".jpg";
 
@@ -130,6 +143,15 @@ public class ResultsView extends JPanel
 
                     m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //..and display it
                 }
+            }
+        });
+
+        m_watchList.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent actionEvent)
+            {
+                //change WatchList flag within Movie object
+                System.out.println("Placeholder");
             }
         });
     }
