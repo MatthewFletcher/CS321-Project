@@ -65,7 +65,7 @@ class Movie {
         ArrayList<String> actors = new ArrayList<String>();
         for (int i=0;i<numactors;i++)
         {
-            System.out.printf("Enter actor %d", i+1);
+            System.out.printf("Enter actor %d: ", i+1);
             actors.add(reader.nextLine());
         }
 
