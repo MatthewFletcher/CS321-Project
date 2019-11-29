@@ -1,11 +1,7 @@
-import java.io.FileReader;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 
 class Movie {
@@ -27,19 +23,19 @@ class Movie {
     //Constructor from JSON object
     public Movie(JSONObject j)
     {
-        m_title = (String) j.get("title");	        
+        m_title = (String) j.get("title");
         m_director = (String) j.get("director");
         Long o = (Long) j.get("year");
-        m_year  = new Integer(o.intValue());
+        m_year  = o.intValue();
         JSONArray actorList = new JSONArray();
         actorList =  (JSONArray) j.get("ActorList");
-        
+
         for (Object j_actor: actorList)
         {
             m_actors.add((String)j_actor);
         }
 
-        m_genre = (String) j.get("genre"); 
+        m_genre = (String) j.get("genre");
 
     }
 
@@ -51,7 +47,7 @@ class Movie {
 
         System.out.print("Enter Title: ");
         String title = reader.nextLine();
-        
+
         System.out.print("Enter year: ");
         int year = reader.nextInt();
         reader.nextLine(); //Consume \n character
@@ -74,7 +70,7 @@ class Movie {
         System.out.print("Enter rating x.y/5: ");
         double rating = reader.nextDouble();
         reader.nextLine(); //Consume \n character
-        
+
         System.out.print("Enter Genre: ");
         String genre = reader.nextLine();
 
@@ -105,10 +101,10 @@ class Movie {
 
         for (String actor: m_actors)
         {
-            actorstr += String.format("\t%s\n", actor);
+            actorstr += String.format("%s\n", actor);
         }
 
-        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%sRating: %.1f/5\nGenre: %s", m_title, m_year, m_director, actorstr, m_rating, m_genre);
+        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5\nGenre: %s", m_title, m_year, m_director, actorstr, m_rating, m_genre);
     }
 
     //Please don't shoot me for this
@@ -122,7 +118,7 @@ class Movie {
         {
             obj.put("title",m_title) ;
             obj.put("director",m_director) ;
-            obj.put("year", new Integer(m_year)) ;
+            obj.put("year", Integer.valueOf(m_year)) ;
             obj.put("genre", m_genre);
 
             JSONArray actors = new JSONArray();
