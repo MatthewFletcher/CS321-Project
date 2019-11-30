@@ -3,7 +3,6 @@ import java.util.ArrayList;
 /**
  * The UserProfile class holds the program user's current WatchList
  * of favorite or currently interesting movies. It also records the user's name.
- * @author bradley bowen
  *
  */
 
