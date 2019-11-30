@@ -35,6 +35,8 @@ public class ResultsView extends JPanel
     private JLabel m_posterSpace;
     private Image m_posterScale;
     private JButton m_watchList;
+    private String m_titles[];
+    private String m_descriptions[];
 
     /**
      * Constructor function used to initialize the ResultsView JPanel
@@ -92,8 +94,8 @@ public class ResultsView extends JPanel
     public void showMoviesText(ArrayList<Movie> passMovies) {
 
         int i = 0; //used to iterate through arrays when adding new objects
-        String m_titles[] = new String[passMovies.size()]; //create String array of movie titles to put in the JList
-        String m_descriptions[] = new String[passMovies.size()]; //create String array to hold movie toString data
+        m_titles = new String[passMovies.size()]; //create String array of movie titles to put in the JList
+        m_descriptions = new String[passMovies.size()]; //create String array to hold movie toString data
 
         for (Movie pass : passMovies) {
             m_titles[i] = pass.getTitle(); //copy the title of every Movie in the ArrayList to the array of titles
