@@ -16,8 +16,6 @@ import java.util.ArrayList;
  * Note: I will probably update the description above since its function has deviated a bit from the original design
  *      in that it is not actively building its own lists from SearchBuilder's instructions.
  *
- * @author bradley bowen
- *
  */
 
 public class FilmFinder {
@@ -137,6 +135,20 @@ public class FilmFinder {
             m_MasterList.add(m);
         }
     }
+
+    public void createWatchList()
+    {
+        for (Movie m : m_MasterList)
+        {
+            if (m.getWatchList())
+            {
+                m_UserProfile.addMovie(m);
+            }
+        }
+    }
+
+    public void passWatchList() { ResultsView.getInstance().showMoviesText(m_UserProfile.getWatchList()); }
+
 }
 
 
