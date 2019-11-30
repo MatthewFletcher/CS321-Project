@@ -12,6 +12,8 @@ public class SearchView extends JPanel {
     private JTextField enterTitle;
     private JButton searchByTitle;
 
+    private JLabel ratingLabel;
+    private JComboBox enterRating;
     private JLabel directorLabel;
     private JTextField enterDirector;
     private JLabel yearLabel;
@@ -28,8 +30,6 @@ public class SearchView extends JPanel {
         setBackground(Color.LIGHT_GRAY);
         setBounds(5,100, 267, 358);
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-
-
 
         //Searching by title
         titleLabel = new JLabel("Title:");
@@ -57,6 +57,17 @@ public class SearchView extends JPanel {
 
 
         //Searching by description
+        String[] ratingArray = new String[102];
+        for (int i = 0; i < 101; i++) {
+            ratingArray[i + 1] = Double.toString(((double) i) / 10);
+        }
+        ratingArray[0] = "None";
+        ratingLabel = new JLabel("Minimum Rating:");
+        ratingLabel.setBounds(20, 150, 180, 20);
+        add(ratingLabel);
+        enterRating = new JComboBox(ratingArray);
+        enterRating.setBounds(123, 150, 117, 20);
+        add(enterRating);
         directorLabel = new JLabel("Director:");
         directorLabel.setBounds(20, 180, 80, 20);
         add(directorLabel);
@@ -94,13 +105,15 @@ public class SearchView extends JPanel {
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
                 int year = -1;
+                double rating = -1;
                 ArrayList<String> actors = new ArrayList<String>();
 
-                if (enterYear.getSelectedItem() != "Any") year = Integer.parseInt((String)enterYear.getSelectedItem());
+                if (!enterYear.getSelectedItem().equals("Any")) year = Integer.parseInt((String) enterYear.getSelectedItem());
+                if (!enterRating.getSelectedItem().equals("None")) rating = Double.parseDouble((String) enterRating.getSelectedItem());
                 if (!enterActor.getText().isEmpty()) actors.add(enterActor.getText());
 
                 Movie go = new Movie("", year, enterDirector.getText(),
-                        actors, -1d, enterGenre.getText(), false);
+                        actors, rating, enterGenre.getText(), false);
                 System.out.println("STARTING SEARCH, SEARCH PARAMETERS LISTED BELOW:");
                 System.out.println(go.toString()); //debug
 
