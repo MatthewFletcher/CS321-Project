@@ -38,6 +38,7 @@ class Movie {
         }
 
         m_genre = (String) j.get("genre");
+        m_rating = (Double) j.get("rating");
         m_onWatchList = (Boolean) j.get("onWatchList");
 
     }
@@ -77,7 +78,7 @@ class Movie {
         System.out.print("Enter Genre: ");
         String genre = reader.nextLine();
 
-        System.out.print("Enter WatchList status (true or falses): ");
+        System.out.print("Enter WatchList status (true or false): ");
         Boolean watchList = reader.nextBoolean();
 
         return new Movie(title, year, director, actors, rating, genre, watchList);
