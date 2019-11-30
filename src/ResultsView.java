@@ -42,19 +42,19 @@ public class ResultsView extends JPanel
     private ResultsView()
     {
         setLayout(null);
-        setBackground(Color.GRAY);
+        setBackground(Color.LIGHT_GRAY);
         setBounds(277,5, 505, 453);
         setBorder(BorderFactory.createLineBorder(Color.black, 3));
 
         m_results = new JList();
-        m_results.setBackground(Color.LIGHT_GRAY);
+        m_results.setBackground(Color.WHITE);
         m_resultsPane = new JScrollPane();
         m_resultsPane.setBounds(20, 20, 220, 410);
         m_resultsPane.setViewportView(m_results);
         add(m_resultsPane);
 
         m_movieInfo = new JTextArea();
-        m_movieInfo.setBackground(Color.LIGHT_GRAY);
+        m_movieInfo.setBackground(Color.WHITE);
         m_movieInfo.setEditable(false);
         m_infoPane = new JScrollPane(m_movieInfo);
         m_infoPane.setBounds(263, 220, 220, 170);
