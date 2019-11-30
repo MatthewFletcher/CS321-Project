@@ -85,7 +85,7 @@ public class SearchBuilder {
             for (Movie m: FilmFinder.getInstance().getMasterList()) {
                 if (!directorEmpty){
                     //If FilmFinder movie does not conform, continue on to next movie
-                    if (!m.getDirector().equals(constraints.getDirector())) continue;
+                    if (!m.getDirector().toLowerCase().equals(constraints.getDirector().toLowerCase())) continue;
                 }
                 if (!yearEmpty){
                     //If FilmFinder movie does not conform, continue on to next movie
@@ -93,7 +93,7 @@ public class SearchBuilder {
                 }
                 if (!genreEmpty){
                     //If FilmFinder movie does not conform, continue on to next movie
-                    if (!m.getGenre().equals(constraints.getGenre())) continue;
+                    if (!m.getGenre().toLowerCase().equals(constraints.getGenre().toLowerCase())) continue;
                 }
                 if (!actorEmpty){
                     //If FilmFinder movie does not conform, continue on to next movie
@@ -102,7 +102,7 @@ public class SearchBuilder {
                     //Else, add movie to list
                     boolean conforms = false;
                     for (String actor: m.getActors()) {
-                        if (actor.equals(constraints.getActors().get(0))) conforms = true;
+                        if (actor.toLowerCase().equals(constraints.getActors().get(0).toLowerCase())) conforms = true;
                     }
                     if (!conforms) continue;
                 }
