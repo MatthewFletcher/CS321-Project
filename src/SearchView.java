@@ -94,13 +94,16 @@ public class SearchView extends JPanel {
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
                 int year = -1;
-                if (enterYear.getSelectedItem() != "Any") year = Integer.parseInt((String)enterYear.getSelectedItem());
                 ArrayList<String> actors = new ArrayList<String>();
-                actors.add(enterActor.getText());
+
+                if (enterYear.getSelectedItem() != "Any") year = Integer.parseInt((String)enterYear.getSelectedItem());
+                if (!enterActor.getText().isEmpty()) actors.add(enterActor.getText());
+
                 Movie go = new Movie("", year, enterDirector.getText(),
                         actors, -1d, enterGenre.getText(), false);
                 System.out.println("STARTING SEARCH, SEARCH PARAMETERS LISTED BELOW:");
                 System.out.println(go.toString()); //debug
+
                 SearchBuilder.getInstance().search(go);
             }
         });
