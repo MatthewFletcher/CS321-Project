@@ -347,7 +347,7 @@ public class SearchBuilder {
         {
             //Create a movie object just for carrying a message.
             ArrayList<String> emptyActorList = new ArrayList<String>();
-            Movie message = new Movie("No movies found with that search. Try again!\n", -1, "", emptyActorList, -1.0, "");
+            Movie message = new Movie("No movies found with that search. Try again!\n", -1, "", emptyActorList, -1.0, "", false);
             filmFinder.getResultsList().add(message);
             filmFinder.passResultsList(); //pass message
         }

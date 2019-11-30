@@ -38,6 +38,7 @@ class Movie {
         }
 
         m_genre = (String) j.get("genre");
+        m_onWatchList = (Boolean) j.get("onWatchList");
 
     }
 
@@ -76,13 +77,16 @@ class Movie {
         System.out.print("Enter Genre: ");
         String genre = reader.nextLine();
 
-        return new Movie(title, year, director, actors, rating, genre);
+        System.out.print("Enter WatchList status (true or falses): ");
+        Boolean watchList = reader.nextBoolean();
+
+        return new Movie(title, year, director, actors, rating, genre, watchList);
 
     }
 
 
     //Overloaded constructor
-    public Movie(String title, Integer year, String director, ArrayList<String> actors, Double rating, String genre)
+    public Movie(String title, Integer year, String director, ArrayList<String> actors, Double rating, String genre, Boolean watchList)
     {
         m_title = title;
         m_year = year;
@@ -90,6 +94,7 @@ class Movie {
         m_actors = new ArrayList<String>();
         m_rating = rating;
         m_genre = genre;
+        m_onWatchList = watchList;
 
         for (String actor: actors)
         {
@@ -106,7 +111,7 @@ class Movie {
             actorstr += String.format("%s\n", actor);
         }
 
-        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5\nGenre: %s", m_title, m_year, m_director, actorstr, m_rating, m_genre);
+        return String.format("Title: %s\nYear: %d\nDirector: %s\nActors:%s\nRating: %.1f/5\nGenre: %s\nWatchList: %b", m_title, m_year, m_director, actorstr, m_rating, m_genre, m_onWatchList);
     }
 
     //Please don't shoot me for this
@@ -120,8 +125,10 @@ class Movie {
         {
             obj.put("title",m_title) ;
             obj.put("director",m_director) ;
-            obj.put("year", Integer.valueOf(m_year)) ;
+            obj.put("year", Integer.valueOf(m_year));
+            obj.put("rating", m_rating);
             obj.put("genre", m_genre);
+            obj.put("onWatchList", m_onWatchList);
 
             JSONArray actors = new JSONArray();
 
@@ -172,5 +179,7 @@ class Movie {
     {
         return m_genre;
     }
+
+    public Boolean getWatchList() { return m_onWatchList; }
 
 }

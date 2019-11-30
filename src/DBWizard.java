@@ -103,10 +103,22 @@ public class DBWizard{
 
         System.out.println("Generating new movie");
         Movie temp = Movie.createMovie();
+        //Movie temp1 = Movie.createMovie();
+        //Movie temp2 = Movie.createMovie();
+        //Movie temp3 = Movie.createMovie();
+        //Movie temp4 = Movie.createMovie();
         System.out.println("Generated movie:");
         System.out.println(temp);
+        //System.out.println(temp1);
+        //System.out.println(temp2);
+        //System.out.println(temp3);
+        //System.out.println(temp4);
 
         MovieList.add(temp);
+        //MovieList.add(temp1);
+        //MovieList.add(temp2);
+        //MovieList.add(temp3);
+        //MovieList.add(temp4);
 
 
 

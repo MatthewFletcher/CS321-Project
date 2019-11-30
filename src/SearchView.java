@@ -37,7 +37,7 @@ public class SearchView extends JPanel {
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
                 SearchBuilder.getInstance().search(new Movie(enterTitle.getText(), -1, "",
-                        new ArrayList<String>(), -1d, ""));
+                        new ArrayList<String>(), -1d, "", false));
             }
         });
         add(searchByTitle);
@@ -67,7 +67,7 @@ public class SearchView extends JPanel {
                 int year = -1;
                 if (enterYear.getSelectedItem() != "Any") year = Integer.parseInt((String)enterYear.getSelectedItem());
                 SearchBuilder.getInstance().search(new Movie("", year, enterDirector.getText(),
-                        new ArrayList<String>(), -1d, enterGenre.getText()));
+                        new ArrayList<String>(), -1d, enterGenre.getText(), false));
             }
         });
         add(searchByDescription);
