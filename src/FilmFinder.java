@@ -35,9 +35,9 @@ public class FilmFinder {
     private FilmFinder ()
     {
 
-
-        m_MasterList = new ArrayList<Movie>(); //Creates storage for movies
+        m_MasterList = DBWizard.readDB(); //Creates storage for movies
         m_UserProfile = new UserProfile();
+        createWatchList();
         m_Scraper = null;
         m_ResultsList = new ArrayList<Movie>(); //Create storage for storing results generated after SearchBuilder interaction.
 
