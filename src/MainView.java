@@ -1,6 +1,6 @@
-
-
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class MainView extends JFrame
 {
@@ -17,6 +17,7 @@ public class MainView extends JFrame
     {
         MainView.getInstance();
         System.out.println("BUILD SUCCESS!");
+
     }
 
     /**
@@ -34,10 +35,19 @@ public class MainView extends JFrame
         add(SearchView.getInstance());
         add(ResultsView.getInstance());
 
-
         setSize(800,500);//400 width and 500 height
         setVisible(true);//making the frame visible
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent arg0)
+            {
+                DBWizard.writeDB(FilmFinder.getInstance().getMasterList());
+                System.exit(0);
+            }
+        });
+
     }
 
     /**
