@@ -43,7 +43,7 @@ public class MainView extends JFrame
         {
             public void windowClosing(WindowEvent arg0)
             {
-                DBWizard.writeDB(FilmFinder.getInstance().getMasterList());
+                DBWizard.writeDB(FilmFinder.getInstance().getMasterList()); //export revised WatchList status to database file before closing program
                 System.exit(0);
             }
         });
