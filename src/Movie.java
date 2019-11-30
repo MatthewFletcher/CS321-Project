@@ -71,7 +71,7 @@ class Movie {
             actors.add(reader.nextLine());
         }
 
-        System.out.print("Enter rating x.y/5: ");
+        System.out.print("Enter rating x.y/10: ");
         double rating = reader.nextDouble();
         reader.nextLine(); //Consume \n character
 
