@@ -1,11 +1,14 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class MainView extends JFrame
 {
     private static MainView instance;
+    private JPanel titleBackground;
     private JLabel title;
+    private Image titleImage;
 
 
     /**
@@ -25,12 +28,29 @@ public class MainView extends JFrame
      */
     private MainView()
     {
+
+
+
+
         setTitle("Film Finder");
         setLayout(null);
 
-        title = new JLabel("Film Finder");
-        title.setBounds(125,30, 200, 30);
+        //Title Stuff
+        title = new JLabel();
+        String titlePath = new String("images/Title.png");
+        ImageIcon titleIcon = new ImageIcon(titlePath);
+        titleImage = titleIcon.getImage();
+        titleImage = titleImage.getScaledInstance(267, 90, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
+        title.setBounds(5,5, 267, 90);
+        title.setIcon(new ImageIcon(titleImage)); //set the scaled poster in the JLabel
         add(title);
+
+        //Title background stuff
+        titleBackground = new JPanel();
+        titleBackground.setBackground(Color.LIGHT_GRAY);
+        titleBackground.setBounds(5,5, 267, 90);
+        titleBackground.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        add(titleBackground);
 
         add(SearchView.getInstance());
         add(ResultsView.getInstance());
@@ -43,7 +63,7 @@ public class MainView extends JFrame
         {
             public void windowClosing(WindowEvent arg0)
             {
-                DBWizard.writeDB(FilmFinder.getInstance().getMasterList()); //export revised WatchList status to database file before closing program
+                DBWizard.writeDB(FilmFinder.getInstance().getMasterList());
                 System.exit(0);
             }
         });
