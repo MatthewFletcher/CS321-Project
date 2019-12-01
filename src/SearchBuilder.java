@@ -91,6 +91,10 @@ public class SearchBuilder {
                     //If FilmFinder movie does not conform, continue on to next movie
                     if (!m.getYear().equals(constraints.getYear())) continue;
                 }
+                if (!ratingEmpty){
+                    //If FilmFinder movie does not conform, continue on to next movie
+                    if (m.getRating() < constraints.getRating()) continue;
+                }
                 if (!genreEmpty){
                     //If FilmFinder movie does not conform, continue on to next movie
                     if (!m.getGenre().toLowerCase().equals(constraints.getGenre().toLowerCase())) continue;
