@@ -119,7 +119,7 @@ public class ResultsView extends JPanel
 
 
         String m_posterLocation = new String("images/");
-        m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll(" ", "_"); //create the filepath to find the poster in the images folder
+        m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll("[ |:$|?$]", "_"); //create the filepath to find the poster in the images folder
         m_posterLocation += ".jpg";
 
         ImageIcon poster = new ImageIcon(m_posterLocation);
@@ -137,7 +137,7 @@ public class ResultsView extends JPanel
                     m_movieInfo.setCaretPosition(0);
 
                     String m_posterLocation = "images/";
-                    m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll(" ", "_"); //...find the filepath for the new selection's poster...
+                    m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll("[ |:$|?$]", "_"); //...find the filepath for the new selection's poster...
                     m_posterLocation += ".jpg";
 
                     ImageIcon poster = new ImageIcon(m_posterLocation);
