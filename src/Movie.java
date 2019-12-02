@@ -112,7 +112,7 @@ class Movie {
             actorstr += String.format("%s\n", actor);
         }
 
-        return String.format("Title: %s\nYear: %d\nDirector: %s\n\nActors:%s\nRating: %.1f/10.0\nGenre: %s\nWatchList: %b", m_title, m_year, m_director, actorstr, m_rating, m_genre, m_onWatchList);
+        return String.format("Title: %s\nYear: %d\nDirector: %s\n\nActors:%s\nRating: %.1f/10.0\nGenre: %s\nWatchList: %b\n", m_title, m_year, m_director, actorstr, m_rating, m_genre, m_onWatchList);
     }
 
     //Please don't shoot me for this
