@@ -33,6 +33,7 @@ public class ResultsView extends JPanel
     private JTextArea m_movieInfo;
     private JScrollPane m_infoPane;
     private JLabel m_posterSpace;
+    private JLabel m_badPoster;
     private Image m_posterScale;
     private JButton m_watchList;
     private String m_titles[];
@@ -65,6 +66,10 @@ public class ResultsView extends JPanel
         m_posterSpace = new JLabel();
         m_posterSpace.setBounds(298, 20, 150, 190);
         add(m_posterSpace);
+
+        m_badPoster = new JLabel();
+
+        add(m_badPoster);
 
         m_watchList = new JButton("Toggle WatchList Status");
         m_watchList.setBounds(263, 400, 220, 30);
@@ -113,26 +118,41 @@ public class ResultsView extends JPanel
         m_results.setListData(m_titles);
         m_results.setSelectedIndex(0); //set default index for JList
 
+        if(m_titles[0].contains("No movies found"))
+        {
+            m_movieInfo.setText("No results found.\n\nPlease try again.");
+            ImageIcon poster = new ImageIcon("images/None.jpg");
+            m_posterScale = poster.getImage();
+            m_posterScale = m_posterScale.getScaledInstance(220, 160, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
 
-        m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
-        m_movieInfo.setCaretPosition(0);
+            m_posterSpace.setText("");
+            m_badPoster.setBounds(263, 30, 220, 160);
+            m_badPoster.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+        }
+        else {
+            m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
+            m_movieInfo.setCaretPosition(0);
 
 
-        String m_posterLocation = new String("images/");
-        m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll("[ |:$|?$]", "_"); //create the filepath to find the poster in the images folder
-        m_posterLocation += ".jpg";
+            String m_posterLocation = new String("images/");
+            m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll("[ |:$|?$]", "_"); //create the filepath to find the poster in the images folder
+            m_posterLocation += ".jpg";
 
-        ImageIcon poster = new ImageIcon(m_posterLocation);
-        m_posterScale = poster.getImage();
-        m_posterScale = m_posterScale.getScaledInstance(150, 190, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
+            ImageIcon poster = new ImageIcon(m_posterLocation);
+            m_posterScale = poster.getImage();
+            m_posterScale = m_posterScale.getScaledInstance(150, 190, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
 
-        m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+            m_badPoster.setBounds(298, 20, 150, 190);
+            m_badPoster.setIcon(new ImageIcon(m_posterScale));
+            m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+        }
 
         m_results.addListSelectionListener(new ListSelectionListener()
         {
             public void valueChanged(ListSelectionEvent arg0) { //whenever a new Movie in the JList is selected...
                 if (!arg0.getValueIsAdjusting()) {
                     if (m_results.getSelectedIndex() < 0) return;
+
                     m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //..change the data displayed within the JTextArea...
                     m_movieInfo.setCaretPosition(0);
 
