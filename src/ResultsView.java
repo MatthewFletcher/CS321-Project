@@ -140,6 +140,9 @@ public class ResultsView extends JPanel
 
             if (m_titles[0].contains("No movies found")) //if there are no Search results found, display the special output for that scenario
             {
+                m_results.setListData(m_titles);
+                m_results.setSelectedIndex(0); //set default index for JList
+
                 m_movieInfo.setText("No results found.\n\nPlease try again.");
                 ImageIcon poster = new ImageIcon("images/None.jpg");
                 m_posterScale = poster.getImage();
