@@ -166,11 +166,6 @@ class Movie {
         return m_actors;
     }
 
-    public void addActor(String actor)
-    {
-        m_actors.add(actor);
-    }
-
     public Double getRating()
     {
         return m_rating;
@@ -182,5 +177,7 @@ class Movie {
     }
 
     public Boolean getWatchList() { return m_onWatchList; }
+
+    public void setWatchList(Boolean newValue) { m_onWatchList = newValue; }
 
 }

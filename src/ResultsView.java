@@ -24,8 +24,12 @@ public class ResultsView extends JPanel
      * JTextArea m_movieInfo- displays all information about a Movie object (title, actors, director, etc.)
      * JScrollPane m_infoPane- used to add a scrollbar to m_movieInfo
      * JLabel m_posterSpace- used to display the poster for the selected Movie
+     * JLabel m_badPoster- used to display special image when no results are found
      * Image m_posterScale- used to hold a copy of the poster that has been scaled to the size of m_posterSpace
-     * JButton m_watchList- toggles a Movie's WatchList status
+     * JButton m_showWatchList- fetches WatchList from UserProfile via FilmFinder and displays the list
+     * JButton m_toggleWatchList- toggles a Movie's WatchList status
+     * String m_titles[]- array of Strings used in m_results
+     * String m_description[]- array of Strings used in m_movieInfo
      */
     private static ResultsView instance = null;
     private JList m_results;
@@ -35,7 +39,8 @@ public class ResultsView extends JPanel
     private JLabel m_posterSpace;
     private JLabel m_badPoster;
     private Image m_posterScale;
-    private JButton m_watchList;
+    private JButton m_showWatchList;
+    private JButton m_toggleWatchList;
     private String m_titles[];
     private String m_descriptions[];
 
@@ -52,14 +57,14 @@ public class ResultsView extends JPanel
         m_results = new JList();
         m_results.setBackground(Color.WHITE);
         m_resultsPane = new JScrollPane();
-        m_resultsPane.setBounds(20, 20, 220, 410);
-        m_resultsPane.setViewportView(m_results);
+        m_resultsPane.setBounds(20, 20, 220, 380);
+        m_resultsPane.setViewportView(m_results); //put JList in JScrollPane before displaying
         add(m_resultsPane);
 
         m_movieInfo = new JTextArea();
         m_movieInfo.setBackground(Color.WHITE);
         m_movieInfo.setEditable(false);
-        m_infoPane = new JScrollPane(m_movieInfo);
+        m_infoPane = new JScrollPane(m_movieInfo); //put JTextArea in JScrollPane before displaying
         m_infoPane.setBounds(263, 220, 220, 170);
         add(m_infoPane);
 
@@ -68,16 +73,30 @@ public class ResultsView extends JPanel
         add(m_posterSpace);
 
         m_badPoster = new JLabel();
-
         add(m_badPoster);
 
-        m_watchList = new JButton("Toggle WatchList Status");
-        m_watchList.setBounds(263, 400, 220, 30);
-        add(m_watchList);
+        m_showWatchList = new JButton("Display WatchList");
+        m_showWatchList.setBounds(20, 410, 220, 20);
+        add(m_showWatchList);
+
+        m_showWatchList.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent actionEvent)
+            {
+                //change WatchList flag within Movie object
+                FilmFinder.getInstance().passWatchList(); //display WatchList whenever the button is pressed
+            }
+        });
+
+        m_toggleWatchList = new JButton("Toggle WatchList Status");
+        m_toggleWatchList.setBounds(263, 400, 220, 30);
+        add(m_toggleWatchList);
     }
 
     /**
      * This function returns the instance of ResultsView. If no instance exists, then one is created.
+     *
+     * @return instance- pointer to instance of ResultsView to be used
      */
     public static ResultsView getInstance()
     {
@@ -118,18 +137,18 @@ public class ResultsView extends JPanel
         m_results.setListData(m_titles);
         m_results.setSelectedIndex(0); //set default index for JList
 
-        if(m_titles[0].contains("No movies found"))
+        if(m_titles[0].contains("No movies found")) //if there are no results found, display the special output for that scenario
         {
             m_movieInfo.setText("No results found.\n\nPlease try again.");
             ImageIcon poster = new ImageIcon("images/None.jpg");
             m_posterScale = poster.getImage();
-            m_posterScale = m_posterScale.getScaledInstance(220, 160, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
+            m_posterScale = m_posterScale.getScaledInstance(220, 160, Image.SCALE_SMOOTH);
 
             m_posterSpace.setText("");
             m_badPoster.setBounds(263, 30, 220, 160);
             m_badPoster.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
         }
-        else {
+        else { //otherwise, display Movie list and information
             m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
             m_movieInfo.setCaretPosition(0);
 
@@ -169,12 +188,12 @@ public class ResultsView extends JPanel
             }
         });
 
-        m_watchList.addActionListener(new ActionListener()
+        m_toggleWatchList.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent actionEvent)
             {
                 //change WatchList flag within Movie object
-                System.out.println("Placeholder");
+                FilmFinder.getInstance().changeWatchList(passMovies.get(m_results.getSelectedIndex())); //change a Movie's onWatchList value and add it to/remove it from the WatchList
             }
         });
     }

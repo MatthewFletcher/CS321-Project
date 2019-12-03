@@ -12,7 +12,6 @@ public class FilmFinder {
     private static FilmFinder   instance = null; //reference to itself
     private ArrayList<Movie>    m_MasterList;   //List of every movie from data file
     private UserProfile         m_UserProfile;  //reference to UserProfile
-    private Scraper             m_Scraper;      //reference to Scraper
     private ArrayList<Movie>    m_ResultsList;  //List of most recent movie search
 
  //Methods
@@ -27,7 +26,6 @@ public class FilmFinder {
         m_MasterList = DBWizard.readDB(); //Creates storage for movies
         m_UserProfile = new UserProfile();
         createWatchList();
-        m_Scraper = null;
         m_ResultsList = new ArrayList<Movie>(); //Create storage for storing results generated after SearchBuilder interaction.
 
     }
@@ -87,18 +85,6 @@ public class FilmFinder {
 
     }
 
-
-    /**
-     * Adds all movies retrieved by DBWizard to the masterList
-     * @param list An ArrayList<Movie> of movies to be stored in FilmFinder's masterList field.
-     */
-    public void setMasterList(ArrayList<Movie> list)
-    {
-        for (Movie m : list) {
-            m_MasterList.add(m);
-        }
-    }
-
     /**
      *Adds movies to UserProfile's WatchList as long as WatchList has been initialized.
      */
@@ -118,6 +104,22 @@ public class FilmFinder {
      */
     public void passWatchList() { ResultsView.getInstance().showMoviesText(m_UserProfile.getWatchList()); }
 
+    /**
+     * Changes whether or not a Movie is in the UserProfile's WatchList and changes the Movie's onWatchList value
+     * @param m- Movie to be added to/removed from the WatchList
+     */
+    public void changeWatchList(Movie m)
+    {
+        if (m.getWatchList())
+        {
+            m_UserProfile.removeMovie(m);
+            m.setWatchList(false);
+        }
+        else{
+            m_UserProfile.addMovie(m);
+            m.setWatchList(true);
+        }
+    }
 }
 
 
