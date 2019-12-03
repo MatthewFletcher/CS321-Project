@@ -151,6 +151,7 @@ public class ResultsView extends JPanel
             } else { //otherwise, display Movie list and information
                 m_results.setListData(m_titles);
                 m_results.setSelectedIndex(0); //set default index for JList
+                m_results.ensureIndexIsVisible(0);
 
                 m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
                 m_movieInfo.setCaretPosition(0);
