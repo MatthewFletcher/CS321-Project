@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class PartialSearch{
- 
+
 
     private static PartialSearch instance = null;
 
@@ -14,7 +14,7 @@ public class PartialSearch{
     {
 
     }
-    
+
     /**
      * Singleton method to create one instance of PartialSearch using constructor and return it to the caller. If one instance
      * already exists it returns a reference to that instance instead. Allows only one instance of PartialSearch to exist.
@@ -30,11 +30,10 @@ public class PartialSearch{
         return instance;
     }
     /**
-     * Dummy standin until i get the actual compare working
-     */
-    private Boolean hasSubstringMatch(String str1, String str2)
+    */
+    private Boolean hasSubstringMatch(String master, String slave)
     {
-        return str1.toLowerCase().contains(str2.toLowerCase());
+        return master.toLowerCase().contains(slave.toLowerCase());
     }
 
     /**
@@ -42,7 +41,18 @@ public class PartialSearch{
      */
     private Boolean matchTitle(Movie m1, Movie m2)
     {
-        return (hasSubstringMatch(m1.getTitle(), m2.getTitle()));
+        if (hasSubstringMatch(m1.getTitle(), m2.getTitle()))
+        {
+            System.out.println("Titles match");
+            System.out.println(m1.getTitle());
+            System.out.println(m2.getTitle());
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
 
@@ -51,8 +61,10 @@ public class PartialSearch{
         return (hasSubstringMatch(m1.getDirector(), m2.getDirector()));
     }
 
-    public ArrayList<Movie> Search(Movie searchMovie)
+    public void Search(Movie searchMovie)
     {
+        FilmFinder filmFinder = FilmFinder.getInstance(); //used to access Master Movie list
+        filmFinder.getResultsList().clear(); //clears all previous search results
         DBWizard d = new DBWizard();
         ArrayList<Movie> MasterList = new ArrayList<Movie>();
         MasterList = d.readDB();
@@ -63,25 +75,51 @@ public class PartialSearch{
         {
             if (searchMovie.getTitle() != null)
             {
-                if (matchTitle(m, searchMovie)) matchList.add(m);
-                continue;
-            }
-
-            if (searchMovie.getYear() != null)
-            {
-                if (matchYear(m, searchMovie)) matchList.add(m);
+                System.out.println("Comparing title");
+                if (matchTitle(m, searchMovie)) 
+                {
+                    matchList.add(m);
+                    System.out.printf("TITLE MATCHES\n");
+                }
                 continue;
             }
 
             if (searchMovie.getDirector() != null)
             {
-                if (matchDirector(m, searchMovie)) matchList.add(m);
+                if (matchDirector(m, searchMovie)) 
+                {
+                    matchList.add(m);
+                    System.out.printf("DIRECTOR MATCHES\n");
+                }
                 continue;
             }
-            
+        }
+        System.out.println("Printing all matched movies");
+
+        for (Movie m: matchList)
+        {
+            System.out.println(m.toString());
         }
 
-        return matchList; 
+        //Nothing was found
+        if(matchList.isEmpty())
+        {
+            System.out.println("SLKFDJSLDFKJLSDKJFLKDSF");
+            //Create a movie object just for carrying a message.
+            ArrayList<String> emptyActorList = new ArrayList<String>();
+            Movie message = new Movie("No movies found with that search. Try again!\n", -1, "", emptyActorList, -1.0, "", false);
+            filmFinder.getResultsList().add(message);
+            filmFinder.passResultsList(); //pass message
+        }
+        else //Some movies were found! Copies results into FilmFinder's ResultsList attribute.
+        {
+            System.out.println("MOVIES FOUND");
+            for(Movie m : matchList)
+            {
+                filmFinder.getResultsList().add(m);
+            }
+            filmFinder.passResultsList(); //pass found movies to ResultsView
+        }
 
     }
 
