@@ -26,8 +26,6 @@ public class SearchView extends JPanel {
 
     private JCheckBox enableFuzzySearch;
 
-    private JButton showWatchList;
-
     private SearchView()
     {
         setLayout(null);
@@ -67,19 +65,19 @@ public class SearchView extends JPanel {
         }
         ratingArray[0] = "None";
         ratingLabel = new JLabel("Minimum Rating:");
-        ratingLabel.setBounds(20, 75, 180, 20);
+        ratingLabel.setBounds(20, 110, 180, 20);
         add(ratingLabel);
         enterRating = new JComboBox(ratingArray);
-        enterRating.setBounds(123, 75, 117, 20);
+        enterRating.setBounds(123, 110, 117, 20);
         add(enterRating);
         directorLabel = new JLabel("Director:");
-        directorLabel.setBounds(20, 105, 80, 20);
+        directorLabel.setBounds(20, 140, 80, 20);
         add(directorLabel);
         enterDirector = new JTextField("");
-        enterDirector.setBounds(75, 105, 165, 20);
+        enterDirector.setBounds(75, 140, 165, 20);
         add(enterDirector);
         yearLabel = new JLabel("Year:");
-        yearLabel.setBounds(20, 135, 80, 20);
+        yearLabel.setBounds(20, 170, 80, 20);
         add(yearLabel);
         String[] yearArray = new String[133];
         for (int i = 0; i < 132; i ++) {
@@ -88,22 +86,22 @@ public class SearchView extends JPanel {
         yearArray[132] = "Any";
         enterYear = new JComboBox(yearArray);
         enterYear.setSelectedIndex(132);
-        enterYear.setBounds(55, 135, 185, 20);
+        enterYear.setBounds(55, 170, 185, 20);
         add(enterYear);
         genreLabel = new JLabel("Genre:");
-        genreLabel.setBounds(20, 165, 80, 20);
+        genreLabel.setBounds(20, 200, 80, 20);
         add(genreLabel);
         enterGenre = new JTextField("");
-        enterGenre.setBounds(65, 165, 175, 20);
+        enterGenre.setBounds(65, 200, 175, 20);
         add(enterGenre);
         actorLabel = new JLabel("Actor:");
-        actorLabel.setBounds(20, 195, 80, 20);
+        actorLabel.setBounds(20, 230, 80, 20);
         add(actorLabel);
         enterActor = new JTextField("");
-        enterActor.setBounds(62, 195, 178, 20);
+        enterActor.setBounds(62, 230, 178, 20);
         add(enterActor);
         searchByDescription = new JButton("Search by Description");
-        searchByDescription.setBounds(20, 225, 220, 20);
+        searchByDescription.setBounds(20, 260, 220, 20);
         searchByDescription.addActionListener(new ActionListener() {
             @Override
             //Do this on button push
@@ -129,22 +127,8 @@ public class SearchView extends JPanel {
 
         //Enable fuzzy search checkbox
         enableFuzzySearch = new JCheckBox("Enable Fuzzy Search");
-        enableFuzzySearch.setBounds(20, 255, 150, 20);
+        enableFuzzySearch.setBounds(20, 325, 150, 20);
         add(enableFuzzySearch);
-
-
-        //Show current watchlist
-        showWatchList = new JButton("Show WatchList");
-        showWatchList.setBounds(20, 325, 220, 20);
-        showWatchList.addActionListener(new ActionListener() {
-            @Override
-            //Do this on button push
-            public void actionPerformed(ActionEvent actionEvent) {
-
-            }
-        });
-        add(showWatchList);
-
     }
 
     /**

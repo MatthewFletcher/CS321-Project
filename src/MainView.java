@@ -28,16 +28,12 @@ public class MainView extends JFrame
      */
     private MainView()
     {
-
-
-
-
         setTitle("Film Finder");
         setLayout(null);
 
         //Title Stuff
         title = new JLabel();
-        String titlePath = new String("images/Title.png");
+        String titlePath = new String("images/TitleNoNames.png");
         ImageIcon titleIcon = new ImageIcon(titlePath);
         titleImage = titleIcon.getImage();
         titleImage = titleImage.getScaledInstance(267, 90, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
