@@ -4,58 +4,67 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * Extends the JPanel interface
+ * Initializes the input fields for the searches and contains them inside of its JPanel
+ * Has the Singleton design pattern
+ */
 public class SearchView extends JPanel {
 
     private static SearchView instance = null;
 
-    private JLabel titleLabel;
+    //Inputs
     private JTextField enterTitle;
-    private JButton searchByTitle;
 
-    private JLabel ratingLabel;
     private JComboBox enterRating;
-    private JLabel directorLabel;
     private JTextField enterDirector;
-    private JLabel yearLabel;
     private JComboBox enterYear;
-    private JLabel genreLabel;
     private JTextField enterGenre;
-    private JLabel actorLabel;
     private JTextField enterActor;
-    private JButton searchByDescription;
 
     private JCheckBox enableFuzzySearch;
 
+    /**
+     * Default constructor
+     * Initializes all the search constraint input fields as GUI assets
+     * Contains all input fields in a JPanel
+     * Has no layout manager so fields can be placed at exact coordinates
+     */
     private SearchView()
     {
+        //Setting SearchView JPanel Settings
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
         setBounds(5,100, 267, 358);
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
         //Searching by title
-        titleLabel = new JLabel("Title:");
+        JLabel titleLabel = new JLabel("Title:");
         titleLabel.setBounds(20, 15, 80, 20);
         add(titleLabel);
         enterTitle = new JTextField("");
         enterTitle.setBounds(55, 15, 185, 20);
         add(enterTitle);
-        searchByTitle = new JButton("Search by Title");
+        JButton searchByTitle = new JButton("Search by Title");
         searchByTitle.setBounds(20, 45, 220, 20);
         searchByTitle.addActionListener(new ActionListener() {
             @Override
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
+                //Creating movie object from GUI input fields
                 Movie go = new Movie(enterTitle.getText(), -1, "",
                         new ArrayList<String>(), -1d, "", false);
+
+                //Debug
                 System.out.println("STARTING SEARCH, SEARCH PARAMETERS LISTED BELOW:");
                 System.out.println(go.toString()); //debug
-                SearchBuilder.getInstance().search(go);
+
+                //Search
+                if (enableFuzzySearch.isSelected()) return; //Fuzzy Search
+                else SearchBuilder.getInstance().search(go); //Regular Search
             }
         });
         add(searchByTitle);
-
-
 
 
         //Searching by description
@@ -64,19 +73,19 @@ public class SearchView extends JPanel {
             ratingArray[i + 1] = Double.toString(((double) i) / 10);
         }
         ratingArray[0] = "None";
-        ratingLabel = new JLabel("Minimum Rating:");
+        JLabel ratingLabel = new JLabel("Minimum Rating:");
         ratingLabel.setBounds(20, 110, 180, 20);
         add(ratingLabel);
         enterRating = new JComboBox(ratingArray);
         enterRating.setBounds(123, 110, 117, 20);
         add(enterRating);
-        directorLabel = new JLabel("Director:");
+        JLabel directorLabel = new JLabel("Director:");
         directorLabel.setBounds(20, 140, 80, 20);
         add(directorLabel);
         enterDirector = new JTextField("");
         enterDirector.setBounds(75, 140, 165, 20);
         add(enterDirector);
-        yearLabel = new JLabel("Year:");
+        JLabel yearLabel = new JLabel("Year:");
         yearLabel.setBounds(20, 170, 80, 20);
         add(yearLabel);
         String[] yearArray = new String[133];
@@ -88,44 +97,46 @@ public class SearchView extends JPanel {
         enterYear.setSelectedIndex(132);
         enterYear.setBounds(55, 170, 185, 20);
         add(enterYear);
-        genreLabel = new JLabel("Genre:");
+        JLabel genreLabel = new JLabel("Genre:");
         genreLabel.setBounds(20, 200, 80, 20);
         add(genreLabel);
         enterGenre = new JTextField("");
         enterGenre.setBounds(65, 200, 175, 20);
         add(enterGenre);
-        actorLabel = new JLabel("Actor:");
+        JLabel actorLabel = new JLabel("Actor:");
         actorLabel.setBounds(20, 230, 80, 20);
         add(actorLabel);
         enterActor = new JTextField("");
         enterActor.setBounds(62, 230, 178, 20);
         add(enterActor);
-        searchByDescription = new JButton("Search by Description");
+        JButton searchByDescription = new JButton("Search by Description");
         searchByDescription.setBounds(20, 260, 220, 20);
         searchByDescription.addActionListener(new ActionListener() {
             @Override
             //Do this on button push
             public void actionPerformed(ActionEvent actionEvent) {
+                //Creating movie object from GUI input fields
                 int year = -1;
                 double rating = -1;
                 ArrayList<String> actors = new ArrayList<String>();
-
                 if (!enterYear.getSelectedItem().equals("Any")) year = Integer.parseInt((String) enterYear.getSelectedItem());
                 if (!enterRating.getSelectedItem().equals("None")) rating = Double.parseDouble((String) enterRating.getSelectedItem());
                 if (!enterActor.getText().isEmpty()) actors.add(enterActor.getText());
-
                 Movie go = new Movie("", year, enterDirector.getText(),
                         actors, rating, enterGenre.getText(), false);
-                System.out.println("STARTING SEARCH, SEARCH PARAMETERS LISTED BELOW:");
-                System.out.println(go.toString()); //debug
 
-                SearchBuilder.getInstance().search(go);
+                //Debug
+                System.out.println("STARTING SEARCH, SEARCH PARAMETERS LISTED BELOW:");
+                System.out.println(go.toString());
+
+                //Search
+                if (enableFuzzySearch.isSelected()) return; //Fuzzy Search
+                else SearchBuilder.getInstance().search(go); //Regular Search
             }
         });
         add(searchByDescription);
 
-
-        //Enable fuzzy search checkbox
+        //Instantiate the enable fuzzy search checkbox
         enableFuzzySearch = new JCheckBox("Enable Fuzzy Search");
         enableFuzzySearch.setBounds(20, 325, 150, 20);
         add(enableFuzzySearch);

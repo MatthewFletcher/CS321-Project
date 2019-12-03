@@ -3,6 +3,12 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Extends the JFrame interface
+ * Contains the main method that runs on startup
+ * Initializes the GUI menus for the application and contains them inside of its JFrame
+ * Has the singleton design pattern
+ */
 public class MainView extends JFrame
 {
     private static MainView instance;
