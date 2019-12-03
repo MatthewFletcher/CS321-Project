@@ -1,20 +1,9 @@
 import java.util.ArrayList;
 
 /**
- * The FilmFinder class. It is a Singleton which means only one
- * can exist at a time.
- *
- * This class serves as a middleman between the SearchBuilder and the rest of
- * the classes within the model. When the program initializes, it retrieves Movie information
- * from the Database via the Scraper class. While the program is running, it receives
- * instructions from the SearchBuilder to accurately build a ResultsList; whose information
- * then gets passed to the ResultsView object to be displayed in the GUI. This class also
- * interacts with the UserProfile object (which is used to store the WatchList) and collects
- * the updated WatchList to make the appropriate changes to the Database via
- * DatabaseUpdater when the program is terminated. (Quoted from Design Doc)
- *
- * Note: I will probably update the description above since its function has deviated a bit from the original design
- *      in that it is not actively building its own lists from SearchBuilder's instructions.
+ * FilmFinder is a Singleton class (only once instance allowed). It holds the master list of all movies
+ * after they have been retrieved from a local data file by the DBWizard. It also holds recent searches performed
+ * by SearchBuilder. Finally, it can update UserProfile's watchList data.
  *
  */
 
@@ -43,31 +32,11 @@ public class FilmFinder {
 
     }
 
-    /**
-     * STUB. Calls data scraper to create a new movie, and return to caller. We need to decide on a function for Scraper.
-     * @return returns a newly create movie object.
-     */
-    public Movie createMovie()
-    {
-        //INSERT call to Scraper to get movie data
-
-        return new Movie();
-    }
-
-    /**
-     * STUB. Build the master list of movies at the beginning of program using createMovie()
-     */
-    public void createMasterList()
-    {
-         //INSERT loop to create and add all data file movies gathered by Scraper into the Master list
-
-    }
-
 
     /**
      * Singleton method to create one instance of FilmFinder using constructor and return it to the caller. If one instance
      * already exists it returns a reference to that instance instead. Allows only one instance of FilmFinder to exist.
-     * @return returns a reference to the one and only instance of FilmFinder.
+     * @return returns a FilmFinder reference to the one and only instance of FilmFinder.
      */
     public static FilmFinder getInstance()
     {
@@ -81,7 +50,7 @@ public class FilmFinder {
 
     /**
      * Gets MasterMovie list so SearchBuilder can search through it
-     * @return returns a reference to the the list containing all movies
+     * @return returns an ArrayList<Movie> reference to the the list containing all movies
      */
     public ArrayList<Movie> getMasterList()
     {
@@ -90,7 +59,7 @@ public class FilmFinder {
 
     /**
      * Gets ResultsList so SearchBuilder can add movies to it while searching
-     * @return returns a reference to the the list containing recent search results
+     * @return returns an ArrayList<Movie> reference to the resultsList containing recent search results
      */
     public ArrayList<Movie> getResultsList()
     {
@@ -99,8 +68,8 @@ public class FilmFinder {
 
 
     /**
-     * Receives list of movies found by the SearchBuilder class, updates m_resultsList, and finally passes the list to ResultsView to be displayed.
-     * Currently, the format of the data received from SearchBuilder is unclear to me.
+     * Passes a copy of the resultsList to ResultsView to be displayed after a search
+     * has been performed by SearchBuilder.
      */
     public void passResultsList()
     {
@@ -118,24 +87,21 @@ public class FilmFinder {
 
     }
 
-    /**
-     * Allows the m_Scraper attribute to be assigned. This function is needed since the constructor is private.
-     */
-    public void setScraperReference(Scraper scraper)
-    {
-        m_Scraper = scraper;
-    }
 
     /**
-     * Loads test data into MasterList so We can test search function in searchBuilder
+     * Adds all movies retrieved by DBWizard to the masterList
+     * @param list An ArrayList<Movie> of movies to be stored in FilmFinder's masterList field.
      */
-    public void setMasterList(ArrayList<Movie> testList)
+    public void setMasterList(ArrayList<Movie> list)
     {
-        for (Movie m : testList) { // Set MasterList
+        for (Movie m : list) {
             m_MasterList.add(m);
         }
     }
 
+    /**
+     *Adds movies to UserProfile's WatchList as long as WatchList has been initialized.
+     */
     public void createWatchList()
     {
         for (Movie m : m_MasterList)
@@ -147,9 +113,13 @@ public class FilmFinder {
         }
     }
 
+    /**
+     *Passes UserProfile's watchList to ResultsView to be displayed onscreen.
+     */
     public void passWatchList() { ResultsView.getInstance().showMoviesText(m_UserProfile.getWatchList()); }
 
 }
+
 
 
 
