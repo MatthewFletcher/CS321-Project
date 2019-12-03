@@ -71,20 +71,6 @@ public class UserProfile {
          System.out.println("Error: The movie is already in the WatchList");
    }
 
-   /**
-    * Removes movie from current watchList
-    * @param movie A Movie object that will be removed from the watchList as long as it exists in the list.
-    */
-   public void removeMovie(Movie movie)
-   {
-      //Make sure movie is within watchList
-      if(m_watchList.contains(movie))
-         m_watchList.remove(movie);
-      else
-         System.out.println("Error: The movie is not in the WatchList");
-   }
-
-
 }
 
 

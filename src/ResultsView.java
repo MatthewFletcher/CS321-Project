@@ -192,8 +192,19 @@ public class ResultsView extends JPanel
         {
             public void actionPerformed(ActionEvent actionEvent)
             {
-                //change WatchList flag within Movie object
-                FilmFinder.getInstance().changeWatchList(passMovies.get(m_results.getSelectedIndex())); //change a Movie's onWatchList value and add it to/remove it from the WatchList
+
+                try {
+                    if (m_descriptions[m_results.getSelectedIndex()].contains("WatchList: false")) {
+                        FilmFinder.getInstance().addWatchList(passMovies.get(m_results.getSelectedIndex())); //add the Movie if it isn't in the WatchList...
+                    } else {
+                        FilmFinder.getInstance().removeWatchList((String) m_results.getSelectedValue()); //...and remove the Movie if it is
+                    }
+                }
+                catch (IndexOutOfBoundsException e)
+                {
+                    return;
+                }
+
             }
         });
     }

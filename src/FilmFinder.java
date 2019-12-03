@@ -90,6 +90,9 @@ public class FilmFinder {
      */
     public void createWatchList()
     {
+
+        m_UserProfile.getWatchList().clear();
+
         for (Movie m : m_MasterList)
         {
             if (m.getWatchList())
@@ -102,23 +105,50 @@ public class FilmFinder {
     /**
      *Passes UserProfile's watchList to ResultsView to be displayed onscreen.
      */
-    public void passWatchList() { ResultsView.getInstance().showMoviesText(m_UserProfile.getWatchList()); }
+    public void passWatchList()
+    {
+
+        ArrayList<Movie> passMovies = new ArrayList<Movie>();
+
+        for (Movie m : m_UserProfile.getWatchList()) { // iterate through the WatchList and then passes to ResultsView
+            passMovies.add(m);
+        }
+
+        //Get the instance of ResultsView to pass it the results.
+        ResultsView resultsView = ResultsView.getInstance();
+
+        //Passes the movie list result from the search to ResultsView
+        resultsView.showMoviesText(passMovies);
+    }
 
     /**
-     * Changes whether or not a Movie is in the UserProfile's WatchList and changes the Movie's onWatchList value
-     * @param m- Movie to be added to/removed from the WatchList
+     * Adds a Movie to the UserProfile's WatchList
+     * @param m- Movie to be added to the WatchList
      */
-    public void changeWatchList(Movie m)
+    public void addWatchList(Movie m)
     {
-        if (m.getWatchList())
-        {
-            m_UserProfile.removeMovie(m);
-            m.setWatchList(false);
+        m.setWatchList(true);
+
+        createWatchList();
+    }
+
+    /**
+     * Rebuilds the WatchList without the Movie with the same title as the passed in String
+     *
+     * @param title- name of the Movie to be removed from the WatchList
+     */
+
+    public void removeWatchList(String title)
+    {
+        Boolean check = false;
+        for (Movie m : m_UserProfile.getWatchList()) {
+            if (m.getTitle().equals(title)) {
+                m.setWatchList(false);
+                check = true;
+            }
         }
-        else{
-            m_UserProfile.addMovie(m);
-            m.setWatchList(true);
-        }
+
+        if(check) { createWatchList(); }
     }
 }
 
