@@ -68,25 +68,28 @@ public class FuzzySearch{
 
         ArrayList<Movie> matchList = new ArrayList<Movie>();
 
+
         for (Movie m : MasterList)
         {
-            if (m.getTitle() != null)
+            if (searchMovie.getTitle() != null)
             {
                 if (matchTitle(m, searchMovie)) matchList.add(m);
+                continue;
             }
 
-            if (m.getYear() != null)
+            if (searchMovie.getYear() != null)
             {
                 if (matchYear(m, searchMovie)) matchList.add(m);
+                continue;
             }
 
-            if (m.getDirector() != null)
+            if (searchMovie.getDirector() != null)
             {
                 if (matchDirector(m, searchMovie)) matchList.add(m);
+                continue;
             }
             
         }
-
         return matchList; 
 
     }
