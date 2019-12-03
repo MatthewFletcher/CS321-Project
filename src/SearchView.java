@@ -60,7 +60,7 @@ public class SearchView extends JPanel {
                 System.out.println(go.toString()); //debug
 
                 //Search
-                if (enableFuzzySearch.isSelected()) return; //Fuzzy Search
+                if (enableFuzzySearch.isSelected()) PartialSearch.getInstance().Search(go); //Fuzzy Search
                 else SearchBuilder.getInstance().search(go); //Regular Search
             }
         });
@@ -130,7 +130,7 @@ public class SearchView extends JPanel {
                 System.out.println(go.toString());
 
                 //Search
-                if (enableFuzzySearch.isSelected()) return; //Fuzzy Search
+                if (enableFuzzySearch.isSelected()) PartialSearch.getInstance().Search(go); //Fuzzy Search
                 else SearchBuilder.getInstance().search(go); //Regular Search
             }
         });
