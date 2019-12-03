@@ -1,0 +1,1524 @@
+{
+    "MovieList": [
+        {
+            "ActorList": [
+                "Joseph Cotten",
+                "Dorothy Comingore",
+                "Agnes Moorehead"
+            ],
+            "director": "Orson Welles",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "Citizen Kane",
+            "year": 1941
+        },
+        {
+            "ActorList": [
+                "Marlon Brando",
+                "Al Pacino",
+                "Diane Keaton"
+            ],
+            "director": "Francis Ford Coppola",
+            "genre": "Crime",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "The Godfather",
+            "year": 1972
+        },
+        {
+            "ActorList": [
+                "Humphrey Bogart",
+                "Ingrid Bergman",
+                "Paul Henreid"
+            ],
+            "director": "Michael Curtiz",
+            "genre": "Romance",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "Casablanca",
+            "year": 1943
+        },
+        {
+            "ActorList": [
+                "Robert de Niro",
+                "Cathy Moriarty",
+                "Joe Pesci"
+            ],
+            "director": "Martin Scorsese",
+            "genre": "Drama",
+            "onWatchList": false,
+            "rating": 9.4,
+            "title": "Raging Bull",
+            "year": 1980
+        },
+        {
+            "ActorList": [
+                "Gene Kelly",
+                "Donald O'Connor",
+                "Debbie Reynolds"
+            ],
+            "director": "Stanley Donen",
+            "genre": "Musical",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "Singin' in the Rain",
+            "year": 1952
+        },
+        {
+            "ActorList": [
+                "Thomas Mitchell",
+                "Barbara O'Neil",
+                "Vivien Leigh"
+            ],
+            "director": "Victor Fleming",
+            "genre": "Romance",
+            "onWatchList": true,
+            "rating": 9.0,
+            "title": "Gone With the Wind",
+            "year": 1939
+        },
+        {
+            "ActorList": [
+                "Peter O'Toole",
+                "Alec Guinness",
+                "Omar Sharif",
+                "Anthony Quinn"
+            ],
+            "director": "David Lean",
+            "genre": "Epic",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "Lawrence of Arabia",
+            "year": 1962
+        },
+        {
+            "ActorList": [
+                "Liam Neeson",
+                "Ralph Fiennes",
+                "Ben Kingsley"
+            ],
+            "director": "Steven Spielberg",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 9.7,
+            "title": "Schindler's List",
+            "year": 1993
+        },
+        {
+            "ActorList": [
+                "James Stewart",
+                "Kim Novak"
+            ],
+            "director": "Alfred Hitchcock",
+            "genre": "Thriller",
+            "onWatchList": false,
+            "rating": 9.5,
+            "title": "Vertigo",
+            "year": 1958
+        },
+        {
+            "ActorList": [
+                "Judy Garland",
+                "Ray Bolger",
+                "Jack Haley",
+                "Margaret Hamilton"
+            ],
+            "director": "Victor Fleming",
+            "genre": "Fantasy",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "The Wizard of Oz",
+            "year": 1939
+        },
+        {
+            "ActorList": [
+                "Charlie Chaplin",
+                "Virginia Cherrill",
+                "Florence Lee"
+            ],
+            "director": "Charles Chaplin",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "City Lights",
+            "year": 1931
+        },
+        {
+            "ActorList": [
+                "John Wayne",
+                "Vera Miles"
+            ],
+            "director": "John Ford",
+            "genre": "Western",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "The Searchers",
+            "year": 1956
+        },
+        {
+            "ActorList": [
+                "Mark Hamill",
+                "Harrison Ford",
+                "Carrie Fisher",
+                "Alec Guinness",
+                "James Earl Jones",
+                "Peter Cushing",
+                "David Prowse"
+            ],
+            "director": "George Lucas",
+            "genre": "Fantasy",
+            "onWatchList": false,
+            "rating": 9.3,
+            "title": "Star Wars",
+            "year": 1977
+        },
+        {
+            "ActorList": [
+                "Anthony Perkins",
+                "Janet Leigh",
+                "Vera Miles",
+                "John Gavin",
+                "Martin Balsam"
+            ],
+            "director": "Alfred Hitchcock",
+            "genre": "Thriller",
+            "onWatchList": false,
+            "rating": 9.6,
+            "title": "Psycho",
+            "year": 1960
+        },
+        {
+            "ActorList": [
+                "Keir Dullea",
+                "Douglas Rain"
+            ],
+            "director": "Stanley Kubrick",
+            "genre": "Epic",
+            "onWatchList": false,
+            "rating": 9.3,
+            "title": "2001: A Space Odyssey",
+            "year": 1968
+        },
+        {
+            "ActorList": [
+                "William Holden",
+                "Gloria Swanson",
+                "Erich von Stroheim",
+                "Nancy Olson"
+            ],
+            "director": "Billy Wilder",
+            "genre": "Noir",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "Sunset Boulevard",
+            "year": 1950
+        },
+        {
+            "ActorList": [
+                "Anne Bancroft",
+                "Dustin Hoffman",
+                "Katharine Ross"
+            ],
+            "director": "Mike Nichols",
+            "genre": "Romance",
+            "onWatchList": false,
+            "rating": 8.8,
+            "title": "The Graduate",
+            "year": 1967
+        },
+        {
+            "ActorList": [
+                "Buster Keaton",
+                "Marion Mack"
+            ],
+            "director": "Clyde Bruckman",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.2,
+            "title": "The General",
+            "year": 1927
+        },
+        {
+            "ActorList": [
+                "Marlon Brando",
+                "Karl Malden",
+                "Lee J. Cobb",
+                "Rod Steiger"
+            ],
+            "director": "Elia Kazan",
+            "genre": "Crime",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "On the Waterfront",
+            "year": 1954
+        },
+        {
+            "ActorList": [
+                "James Stewart",
+                "Donna Reed",
+                "Lionel Barrymore"
+            ],
+            "director": "Frank Capra",
+            "genre": "Romance",
+            "onWatchList": false,
+            "rating": 9.4,
+            "title": "It's a Wonderful Life",
+            "year": 1947
+        },
+        {
+            "ActorList": [
+                "Jack Nicholson",
+                "Faye Dunaway"
+            ],
+            "director": "Roman Polanski",
+            "genre": "Noir",
+            "onWatchList": true,
+            "rating": 9.9,
+            "title": "Chinatown",
+            "year": 1974
+        },
+        {
+            "ActorList": [
+                "Marilyn Monroe",
+                "Tony Curtis",
+                "Jack Lemmon"
+            ],
+            "director": "Billy Wilder",
+            "genre": "Comedy",
+            "onWatchList": false,
+            "rating": 9.7,
+            "title": "Some Like It Hot",
+            "year": 1959
+        },
+        {
+            "ActorList": [
+                "Henry Fonda",
+                "Jane Darwell",
+                "John Carradine"
+            ],
+            "director": "John Ford",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "The Grapes of Wrath",
+            "year": 1940
+        },
+        {
+            "ActorList": [
+                "Dee Wallace",
+                "Henry Thomas",
+                "Drew Barrymore",
+                "Pat Welsh",
+                "Peter Coyote"
+            ],
+            "director": "Steven Spielberg",
+            "genre": "Fantasy",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "E.T. the Extra-Terrestrial",
+            "year": 1982
+        },
+        {
+            "ActorList": [
+                "Gregory Peck",
+                "Mary Badham"
+            ],
+            "director": "Robert Mulligan",
+            "genre": "Drama",
+            "onWatchList": false,
+            "rating": 9.2,
+            "title": "To Kill A Mockingbird",
+            "year": 1962
+        },
+        {
+            "ActorList": [
+                "James Stewart",
+                "Jean Arthur",
+                "Claude Rains"
+            ],
+            "director": "Frank Capra",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.5,
+            "title": "Mr. Smith Goes to Washington",
+            "year": 1939
+        },
+        {
+            "ActorList": [
+                "Gary Cooper",
+                "Grace Kelly",
+                "Ian MacDonald",
+                "Lee Van Cleef",
+                "Katy Jurado"
+            ],
+            "director": "Fred Zinnemann",
+            "genre": "Western",
+            "onWatchList": false,
+            "rating": 9.6,
+            "title": "High Noon",
+            "year": 1952
+        },
+        {
+            "ActorList": [
+                "Bette Davis",
+                "Anne Baxter",
+                "Marilyn Monroe"
+            ],
+            "director": "Joseph L. Mankiewicz",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "All About Eve",
+            "year": 1950
+        },
+        {
+            "ActorList": [
+                "Fred MacMurray",
+                "Barbara Stanwyck",
+                "Edward G. Robinson"
+            ],
+            "director": "Billy Wilder",
+            "genre": "Noir",
+            "onWatchList": true,
+            "rating": 9.7,
+            "title": "Double Indemnity",
+            "year": 1944
+        },
+        {
+            "ActorList": [
+                "Marlon Brando",
+                "Robert Duvall",
+                "Martin Sheen",
+                "Laurence Fishburne",
+                "Dennis Hopper",
+                "Harrison Ford"
+            ],
+            "director": "Francis Ford Coppola",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "Apocalypse Now",
+            "year": 1979
+        },
+        {
+            "ActorList": [
+                "Humphrey Bogart",
+                "Mary Astor"
+            ],
+            "director": "John Huston",
+            "genre": "Noir",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "The Maltese Falcon",
+            "year": 1941
+        },
+        {
+            "ActorList": [
+                "Al Pacino",
+                "Robert Duvall",
+                "Diane Keaton",
+                "Robert De Niro"
+            ],
+            "director": "Francis Ford Coppola",
+            "genre": "Crime",
+            "onWatchList": true,
+            "rating": 9.7,
+            "title": "The Godfather Part II",
+            "year": 1974
+        },
+        {
+            "ActorList": [
+                "Jack Nicholson",
+                "Louise Fletcher",
+                "Will Sampson",
+                "Scatman Crothers",
+                "Brad Dourif",
+                "Danny DeVito",
+                "Christopher Lloyd"
+            ],
+            "director": "Milos Forman",
+            "genre": "Drama",
+            "onWatchList": false,
+            "rating": 9.4,
+            "title": "One Flew Over the Cuckoo's Nest",
+            "year": 1975
+        },
+        {
+            "ActorList": [
+                "Adriana Caselotti",
+                "Lucille La Verne",
+                "Harry Stockwell",
+                "Roy Atwell"
+            ],
+            "director": "David Hand",
+            "genre": "Fantasy",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "Snow White and the Seven Dwarves",
+            "year": 1938
+        },
+        {
+            "ActorList": [
+                "Woody Allen",
+                "Diane Keaton",
+                "Tony Roberts",
+                "Carol Kane",
+                "Paul Simon",
+                "Janet Margolin",
+                "Shelley Duvall",
+                "Christopher Walken",
+                "Colleen Dewhurst"
+            ],
+            "director": "Woody Allen",
+            "genre": "Romance",
+            "onWatchList": true,
+            "rating": 9.7,
+            "title": "Annie Hall",
+            "year": 1977
+        },
+        {
+            "ActorList": [
+                "William Holden",
+                "Jack Hawkins",
+                "Alec Guinness",
+                "Sessue Hayakawa"
+            ],
+            "director": "David Lean",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 9.5,
+            "title": "The Bridge on the River Kwai",
+            "year": 1957
+        },
+        {
+            "ActorList": [
+                "Myrna Loy",
+                "Frederic March",
+                "Dana Andrews",
+                "Teresa Wright",
+                "Virginia Mayo"
+            ],
+            "director": "William Wyler",
+            "genre": "Romance",
+            "onWatchList": true,
+            "rating": 9.6,
+            "title": "The Best Years of Our Lives",
+            "year": 1946
+        },
+        {
+            "ActorList": [
+                "Humphrey Bogart",
+                "Tim Holt",
+                "Walter Huston"
+            ],
+            "director": "John Huston",
+            "genre": "Adventure",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "The Treasure of the Sierra Madre",
+            "year": 1948
+        },
+        {
+            "ActorList": [
+                "Peter Sellers",
+                "George C. Scott",
+                "Sterling Hayden",
+                "Francis Xavier Aloysius James Jeremiah Keenan Wynn",
+                "Slim Pickens"
+            ],
+            "director": "Stanley Kubrick",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "Dr. Strangelove",
+            "year": 1964
+        },
+        {
+            "ActorList": [
+                "Julie Andrews",
+                "Christopher Plummer",
+                "Richard Haydn",
+                "Eleanor Parker"
+            ],
+            "director": "Robert Wise",
+            "genre": "Musical",
+            "onWatchList": false,
+            "rating": 8.4,
+            "title": "The Sound of Music",
+            "year": 1965
+        },
+        {
+            "ActorList": [
+                "Fay Wray",
+                "Bruce Cabot",
+                "Robert Armstrong"
+            ],
+            "director": "Merian C. Cooper",
+            "genre": "Adventure",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "King Kong",
+            "year": 1933
+        },
+        {
+            "ActorList": [
+                "Warren Beatty",
+                "Faye Dunaway",
+                "Michael J. Pollard",
+                "Gene Hackman",
+                "Estelle Parsons"
+            ],
+            "director": "Arthur Penn",
+            "genre": "Crime",
+            "onWatchList": true,
+            "rating": 8.8,
+            "title": "Bonnie and Clyde",
+            "year": 1967
+        },
+        {
+            "ActorList": [
+                "Jon Voight",
+                "Dustin Hoffman",
+                "Sylvia Miles",
+                "Barnard Hughes"
+            ],
+            "director": "John Schlesigner",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 9.1,
+            "title": "Midnight Cowboy",
+            "year": 1969
+        },
+        {
+            "ActorList": [
+                "Cary Grant",
+                "Katharine Hepburn",
+                "James Stewart",
+                "Ruth Hussey"
+            ],
+            "director": "George Cukor",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "The Philadelphia Story",
+            "year": 1941
+        },
+        {
+            "ActorList": [
+                "Alan Ladd",
+                "Jean Arthur",
+                "Van Heflin"
+            ],
+            "director": "George Stevens",
+            "genre": "Western",
+            "onWatchList": true,
+            "rating": 9.7,
+            "title": "Shane",
+            "year": 1953
+        },
+        {
+            "ActorList": [
+                "Claudette Colbert",
+                "Clark Gable"
+            ],
+            "director": "Frank Capra",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "It Happened One Night",
+            "year": 1934
+        },
+        {
+            "ActorList": [
+                "Marlon Brando",
+                "Kim Hunter",
+                "Karl Malden",
+                "Vivien Leigh"
+            ],
+            "director": "Elia Kazan",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "A Streetcar Named Desire",
+            "year": 1952
+        },
+        {
+            "ActorList": [
+                "James Stewart",
+                "Grace Kelly",
+                "Wendell Corey",
+                "Thelma Ritter",
+                "Raymond Burr"
+            ],
+            "director": "Alfred Hitchcock",
+            "genre": "Thriller",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "Rear Window",
+            "year": 1954
+        },
+        {
+            "ActorList": [
+                "Vera Lewis",
+                "Ralph Lewis",
+                "Mae Marsh",
+                "Robert Harron",
+                "Constance Talmadge"
+            ],
+            "director": "D. W. Griffith",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 9.7,
+            "title": "Intolerance",
+            "year": 1916
+        },
+        {
+            "ActorList": [
+                "Elijah Wood",
+                "Ian McKellen",
+                "Viggo Mortensen",
+                "Sean Astin",
+                "Cate Blanchett",
+                "Orlando Bloom",
+                "Christopher Lee",
+                "Hugo Weaving",
+                "Sean Bean",
+                "Andy Serkis"
+            ],
+            "director": "Peter Jackson",
+            "genre": "Epic",
+            "onWatchList": false,
+            "rating": 9.1,
+            "title": "The Fellowship of the Ring",
+            "year": 2001
+        },
+        {
+            "ActorList": [
+                "Natalie Wood",
+                "Richard Beymer",
+                "Russ Tamblyn",
+                "Rita Moreno",
+                "George Chakiris"
+            ],
+            "director": "Jerome Robbins",
+            "genre": "Musical",
+            "onWatchList": true,
+            "rating": 9.3,
+            "title": "West Side Story",
+            "year": 1961
+        },
+        {
+            "ActorList": [
+                "Robert De Niro",
+                "Jodie Foster",
+                "Cybill Shepherd",
+                "Harvey Keitel",
+                "Martin Scorsese"
+            ],
+            "director": "Martin Scorsese",
+            "genre": "Thriller",
+            "onWatchList": false,
+            "rating": 9.7,
+            "title": "Taxi Driver",
+            "year": 1976
+        },
+        {
+            "ActorList": [
+                "Robert De Niro",
+                "John Cazale",
+                "John Savage",
+                "Meryl Streep",
+                "Christopher Walken"
+            ],
+            "director": "Michael Cimino",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 9.4,
+            "title": "The Deer Hunter",
+            "year": 1978
+        },
+        {
+            "ActorList": [
+                "Donald Sutherland",
+                "Tom Skerritt",
+                "Elliott Gould",
+                "Sally Kellerman",
+                "Robert Duvall"
+            ],
+            "director": "Robert Altman",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 8.5,
+            "title": "MASH",
+            "year": 1970
+        },
+        {
+            "ActorList": [
+                "Cary Grant",
+                "Eva Marie Saint",
+                "James Mason"
+            ],
+            "director": "Alfred Hitchcock",
+            "genre": "Thriller",
+            "onWatchList": true,
+            "rating": 9.9,
+            "title": "North by Northwest",
+            "year": 1959
+        },
+        {
+            "ActorList": [
+                "Roy Scheider",
+                "Richard Dreyfuss",
+                "Robert Shaw"
+            ],
+            "director": "Steven Spielberg",
+            "genre": "Thriller",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "Jaws",
+            "year": 1975
+        },
+        {
+            "ActorList": [
+                "Sylvester Stallone",
+                "Talia Shire",
+                "Burt Young",
+                "Carl Weathers",
+                "Burgess Meredith"
+            ],
+            "director": "John G. Avildsen",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 9.4,
+            "title": "Rocky",
+            "year": 1976
+        },
+        {
+            "ActorList": [
+                "Charlie Chaplin",
+                "Georgia Hale",
+                "Mack Swain",
+                "Tom Murray",
+                "Malcolm Waite"
+            ],
+            "director": "Charles Chaplin",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "The Gold Rush",
+            "year": 1925
+        },
+        {
+            "ActorList": [
+                "David Arkin",
+                "Barbara Baxley",
+                "Ned Beatty",
+                "Karen Black",
+                "Ronee Blakley",
+                "Timothy Brown",
+                "Keith Carradine",
+                "Geraldine Chaplin",
+                "Robert DoQui",
+                "Shelley Duvall",
+                "Allen Garfield",
+                "Henry Gibson",
+                "Scott Glenn",
+                "Jeff Goldblum",
+                "Barbara Harris",
+                "David Hayward",
+                "Michael Murphy",
+                "Allan F. Nicholls",
+                "Dave Peel",
+                "Cristina Raines",
+                "Bert Remsen",
+                "Lily Tomlin",
+                "Gwen Welles",
+                "Francis Xavier Aloysius James Jeremiah Keenan Wynn",
+                "Elliott Gould"
+            ],
+            "director": "Robert Altman",
+            "genre": "Musical",
+            "onWatchList": true,
+            "rating": 9.1,
+            "title": "Nashville",
+            "year": 1975
+        },
+        {
+            "ActorList": [
+                "Groucho Marx",
+                "Harpo Marx",
+                "Chico Marx",
+                "Zeppo Marx",
+                "Margaret Dumont",
+                "Louis Calhern",
+                "Raquel Torres",
+                "Edgar Kennedy"
+            ],
+            "director": "Leo McCarey",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.2,
+            "title": "Duck Soup",
+            "year": 1933
+        },
+        {
+            "ActorList": [
+                "Joel McCrea",
+                "Veronica Lake"
+            ],
+            "director": "Preston Sturges",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "Sullivan's Travels",
+            "year": 1942
+        },
+        {
+            "ActorList": [
+                "Richard Dreyfuss",
+                "Ron Howard",
+                "Paul Le Mat",
+                "Charles Martin Smith",
+                "Candy Clark",
+                "Mackenzie Phillips",
+                "Cindy Williams",
+                "Wolfman Jack",
+                "Harrison Ford"
+            ],
+            "director": "George Lucas",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.6,
+            "title": "American Graffiti",
+            "year": 1973
+        },
+        {
+            "ActorList": [
+                "Liza Minnelli",
+                "Michael York",
+                "Joel Grey"
+            ],
+            "director": "Bob Fosse",
+            "genre": "Musical",
+            "onWatchList": true,
+            "rating": 9.5,
+            "title": "Cabaret",
+            "year": 1972
+        },
+        {
+            "ActorList": [
+                "Faye Dunaway",
+                "William Holden",
+                "Peter Finch",
+                "Robert Duvall",
+                "Wesley Addy",
+                "Ned Beatty",
+                "Beatrice Straight"
+            ],
+            "director": "Sidney Lumet",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 9.2,
+            "title": "Network",
+            "year": 1976
+        },
+        {
+            "ActorList": [
+                "Humphrey Bogart",
+                "Katharine Hepburn"
+            ],
+            "director": "John Huston",
+            "genre": "Romance",
+            "onWatchList": false,
+            "rating": 9.8,
+            "title": "The African Queen",
+            "year": 1952
+        },
+        {
+            "ActorList": [
+                "Harrison Ford",
+                "Karen Allen",
+                "Paul Freeman",
+                "Ronald Lacey",
+                "John Rhys-Davies",
+                "Denholm Elliott"
+            ],
+            "director": "Steven Spielberg",
+            "genre": "Adventure",
+            "onWatchList": false,
+            "rating": 9.5,
+            "title": "Raiders of the Lost Ark",
+            "year": 1981
+        },
+        {
+            "ActorList": [
+                "Elizabeth Taylor",
+                "Richard Burton",
+                "George Segal",
+                "Sandy Dennis"
+            ],
+            "director": "Mike Nichols",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 9.5,
+            "title": "Who's Afraid of Virginia Woolf?",
+            "year": 1966
+        },
+        {
+            "ActorList": [
+                "Clint Eastwood",
+                "Gene Hackman",
+                "Morgan Freeman",
+                "Richard Harris",
+                "Anthony James"
+            ],
+            "director": "Clint Eastwood",
+            "genre": "Western",
+            "onWatchList": true,
+            "rating": 9.6,
+            "title": "Unforgiven",
+            "year": 1992
+        },
+        {
+            "ActorList": [
+                "Dustin Hoffman",
+                "Jessica Lange",
+                "Teri Garr",
+                "Dabney Coleman",
+                "Bill Murray",
+                "Charles Durning",
+                "George Gaynes",
+                "Geena Davis",
+                "Doris Belack",
+                "Sydney Pollack"
+            ],
+            "director": "Sydney Pollack",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.0,
+            "title": "Tootsie",
+            "year": 1982
+        },
+        {
+            "ActorList": [
+                "Malcolm McDowell",
+                "Patrick Magee",
+                "Adrienne Corri",
+                "Miriam Karlin",
+                "Anthony Sharp",
+                "Carol Drinkwater",
+                "David Prowse"
+            ],
+            "director": "Stanley Kubrick",
+            "genre": "Crime",
+            "onWatchList": true,
+            "rating": 8.9,
+            "title": "A Clockwork Orange",
+            "year": 1971
+        },
+        {
+            "ActorList": [
+                "Tom Hanks",
+                "Matt Damon",
+                "Adam Goldberg",
+                "Edward Burns",
+                "Barry Pepper",
+                "Tom Sizemore",
+                "Vin Diesel",
+                "Nathan Fillion",
+                "Bryan Cranston",
+                "Paul Giamatti",
+                "Giovanni Ribisi"
+            ],
+            "director": "Steven Spielberg",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 9.3,
+            "title": "Saving Private Ryan",
+            "year": 1998
+        },
+        {
+            "ActorList": [
+                "Tim Robbins",
+                "Morgan Freeman"
+            ],
+            "director": "Frank Darabont",
+            "genre": "Drama",
+            "onWatchList": false,
+            "rating": 9.0,
+            "title": "The Shawshank Redemption",
+            "year": 1994
+        },
+        {
+            "ActorList": [
+                "Paul Newman",
+                "Robert Redford",
+                "Katharine Ross",
+                "Ted Cassidy",
+                "Sam Elliott",
+                "Timothy Scott"
+            ],
+            "director": "George Roy Hill",
+            "genre": "Western",
+            "onWatchList": false,
+            "rating": 9.0,
+            "title": "Butch Cassidy and the Sundance Kid",
+            "year": 1969
+        },
+        {
+            "ActorList": [
+                "Jodie Foster",
+                "Anthony Hopkins",
+                "Scott Glenn",
+                "Charles Napier",
+                "Anthony Heald"
+            ],
+            "director": "Jonathan Demme",
+            "genre": "Thriller",
+            "onWatchList": false,
+            "rating": 9.6,
+            "title": "The Silence of the Lambs",
+            "year": 1991
+        },
+        {
+            "ActorList": [
+                "Sidney Poitier",
+                "Rod Steiger",
+                "Warren Oates",
+                "Kermit Murdock",
+                "Timothy Scott",
+                "Anthony James"
+            ],
+            "director": "Norman Jewison",
+            "genre": "Mystery",
+            "onWatchList": true,
+            "rating": 9.6,
+            "title": "In the Heat of the Night",
+            "year": 1967
+        },
+        {
+            "ActorList": [
+                "Tom Hanks",
+                "Robin Wright",
+                "Gary Sinise",
+                "Mykelti Williamson",
+                "Sally Field",
+                "Haley Joel Osment"
+            ],
+            "director": "Robert Zemeckis",
+            "genre": "Drama",
+            "onWatchList": false,
+            "rating": 7.2,
+            "title": "Forrest Gump",
+            "year": 1994
+        },
+        {
+            "ActorList": [
+                "Dustin Hoffman",
+                "Robert Redford",
+                "Jack Warden",
+                "Martin Balsam",
+                "Hal Holbrook",
+                "Ned Beatty",
+                "David Arkin"
+            ],
+            "director": "Alan J. Pakula",
+            "genre": "Thriller",
+            "onWatchList": true,
+            "rating": 9.3,
+            "title": "All the President's Men",
+            "year": 1976
+        },
+        {
+            "ActorList": [
+                "Charlie Chaplin",
+                "Paulette Goddard",
+                "Henry Bergman",
+                "Tiny Sandford",
+                "Chester Conkin",
+                "Fred Malatesta"
+            ],
+            "director": "Charles Chaplin",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "Modern Times",
+            "year": 1936
+        },
+        {
+            "ActorList": [
+                "William Holden",
+                "Roebrt Ryan",
+                "Ernest Borgnine",
+                "Edmond O'Brien",
+                "Ben Johnson",
+                "Warren Oates"
+            ],
+            "director": "Sam Peckinpah",
+            "genre": "Western",
+            "onWatchList": true,
+            "rating": 9.3,
+            "title": "The Wild Bunch",
+            "year": 1969
+        },
+        {
+            "ActorList": [
+                "Jack Lemmon",
+                "Shirley MacLaine",
+                "Fred MacMurray",
+                "Ray Walston",
+                "Jack Kruschen",
+                "Edie Adams"
+            ],
+            "director": "Billy Wilder",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.4,
+            "title": "The Apartment",
+            "year": 1960
+        },
+        {
+            "ActorList": [
+                "Kirk Douglas",
+                "Laurence Olivier",
+                "Jean Simmons",
+                "Charles Laughton",
+                "Peter Ustinov",
+                "John Gavin",
+                "Tony Curtis"
+            ],
+            "director": "Stanley Kubrick",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 9.5,
+            "title": "Spartacus",
+            "year": 1960
+        },
+        {
+            "ActorList": [
+                "George O'Brien",
+                "Janet Gaynor",
+                "Margaret Livingston",
+                "Herman Bing"
+            ],
+            "director": "F. W. Murnau",
+            "genre": "Romance",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "Sunrise: A Song of Two Humans",
+            "year": 1927
+        },
+        {
+            "ActorList": [
+                "Leonardo DiCaprio",
+                "Kate Winslet",
+                "Billy Zane",
+                "Bill Paxton"
+            ],
+            "director": "James Cameron",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 8.9,
+            "title": "Titanic",
+            "year": 1997
+        },
+        {
+            "ActorList": [
+                "Peter Fonda",
+                "Dennis Hopper",
+                "Phil Spector",
+                "Luke Askew",
+                "Bridget Fonda",
+                "Jack Nicholson"
+            ],
+            "director": "Dennis Hopper",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 8.8,
+            "title": "Easy Rider",
+            "year": 1969
+        },
+        {
+            "ActorList": [
+                "Groucho Marx",
+                "Harpo Marx",
+                "Chico Marx",
+                "Kitty Carlisle",
+                "Allan Jones",
+                "Margaret Dumont",
+                "Sig Ruman"
+            ],
+            "director": "Sam Wood",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.7,
+            "title": "A Night at the Opera",
+            "year": 1935
+        },
+        {
+            "ActorList": [
+                "Tom Berenger",
+                "Willem Dafoe",
+                "Charlie Sheen",
+                "Keith David",
+                "Kevin Dillon",
+                "John C. McGinley",
+                "Forest Whitaker",
+                "Johnny Depp"
+            ],
+            "director": "Oliver Stone",
+            "genre": "Action",
+            "onWatchList": true,
+            "rating": 8.8,
+            "title": "Platoon",
+            "year": 1986
+        },
+        {
+            "ActorList": [
+                "Martin Balsam",
+                "John Fielder",
+                "Lee J. Cobb",
+                "E. G. Marshall",
+                "Lack Klugman",
+                "Edward Binns",
+                "Jack Warden",
+                "Henry Fonda",
+                "Joseph Sweeney",
+                "Ed Begley",
+                "George Voskovec",
+                "Robert Webber"
+            ],
+            "director": "Sidney Lumet",
+            "genre": "Drama",
+            "onWatchList": false,
+            "rating": 10.0,
+            "title": "12 Angry Men",
+            "year": 1957
+        },
+        {
+            "ActorList": [
+                "Katharine Hepburn",
+                "Cary Grant",
+                "Charles Ruggles",
+                "Barry Fitzgerald",
+                "May Robson",
+                "Walter Catlett",
+                "Fritz Field",
+                "Skippy"
+            ],
+            "director": "Howard Hawks",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.3,
+            "title": "Bringing Up Baby",
+            "year": 1938
+        },
+        {
+            "ActorList": [
+                "Bruce Willis",
+                "Toni Collette",
+                "Olivia Williams",
+                "Haley Joel Osment",
+                "Donnie Wahlberg",
+                "M. Night Shyamalan"
+            ],
+            "director": "M. Night Shyamalan",
+            "genre": "Drama",
+            "onWatchList": false,
+            "rating": 8.6,
+            "title": "The Sixth Sense",
+            "year": 1999
+        },
+        {
+            "ActorList": [
+                "Fred Astaire",
+                "Ginger Rogers",
+                "Victor Moore",
+                "Eric Blore",
+                "Helen Broderick",
+                "Betty Furness",
+                "Georges Metaxa",
+                "Landers Stevens"
+            ],
+            "director": "George Stevens",
+            "genre": "Musical",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "Swing Time",
+            "year": 1936
+        },
+        {
+            "ActorList": [
+                "Meryl Streep",
+                "Kevin Kline",
+                "Peter MacNicol"
+            ],
+            "director": "Alan J. Pakula",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 7.6,
+            "title": "Sophie's Choice",
+            "year": 1982
+        },
+        {
+            "ActorList": [
+                "Robert De Niro",
+                "Ray Liotta",
+                "Joe Pesci",
+                "Lorraine Bracco",
+                "Paul Sorvino",
+                "Samuel L. Jackson",
+                "Catherine Scorsese"
+            ],
+            "director": "Martin Scorsese",
+            "genre": "Crime",
+            "onWatchList": false,
+            "rating": 9.6,
+            "title": "Goodfellas",
+            "year": 1990
+        },
+        {
+            "ActorList": [
+                "Gene Hackman",
+                "Fernando Rey",
+                "Roy Scheider",
+                "Tony Lo Bianco",
+                "Marcel Bozzuffi",
+                "Bill Hickman"
+            ],
+            "director": "William Friedkin",
+            "genre": "Action",
+            "onWatchList": true,
+            "rating": 9.8,
+            "title": "The French Connection",
+            "year": 1971
+        },
+        {
+            "ActorList": [
+                "Samuel L. Jackson",
+                "John Travolta",
+                "Uma Thurman",
+                "Harvey Keitel",
+                "Tim Roth",
+                "Amanda Plummer",
+                "Ving Rhames",
+                "Christopher Walken",
+                "Bruce Willis"
+            ],
+            "director": "Quentin Tarantino",
+            "genre": "Crime",
+            "onWatchList": false,
+            "rating": 9.2,
+            "title": "Pulp Fiction",
+            "year": 1994
+        },
+        {
+            "ActorList": [
+                "Timothy Bottoms",
+                "Jeff Bridges",
+                "Cybill Shepherd",
+                "Ben Johnson",
+                "Cloris Leachman",
+                "Randy Quaid",
+                "Bill Thurman"
+            ],
+            "director": "Peter Bogdanovich",
+            "genre": "Drama",
+            "onWatchList": true,
+            "rating": 10.0,
+            "title": "The Last Picture Show",
+            "year": 1971
+        },
+        {
+            "ActorList": [
+                "Spike Lee",
+                "Danny Aiello",
+                "Ossie Davis",
+                "Ruby Dee",
+                "Giancarlo Esposito",
+                "Joie Lee",
+                "Samuel L. Jackson",
+                "Richard Parnell Habersham"
+            ],
+            "director": "Spike Lee",
+            "genre": "Comedy",
+            "onWatchList": true,
+            "rating": 9.3,
+            "title": "Do the Right Thing",
+            "year": 1989
+        },
+        {
+            "ActorList": [
+                "Harrison Ford",
+                "Rutger Hauer",
+                "Sean Young",
+                "Edward James Olmos"
+            ],
+            "director": "Ridley Scott",
+            "genre": "Noir",
+            "onWatchList": false,
+            "rating": 8.9,
+            "title": "Blade Runner",
+            "year": 1982
+        },
+        {
+            "ActorList": [
+                "James Cagney",
+                "Joan Leslie",
+                "Walter Huston",
+                "Richard Whorf",
+                "Jeanne Cagney"
+            ],
+            "director": "Michael Curtiz",
+            "genre": "Musical",
+            "onWatchList": true,
+            "rating": 9.3,
+            "title": "Yankee Doodle Dandy",
+            "year": 1943
+        },
+        {
+            "ActorList": [
+                "Tom Hanks",
+                "Tim Allen",
+                "Don Rickles",
+                "Jim Varney",
+                "Wallace Shawn",
+                "John Ratzenberger",
+                "Annie Potts",
+                "John Morris",
+                "Erik von Detten",
+                "Laurie Metcalf",
+                "R. Lee Ermey",
+                "Sarah Freeman",
+                "Penn Jillette"
+            ],
+            "director": "John Lasseter",
+            "genre": "Comedy",
+            "onWatchList": false,
+            "rating": 10.0,
+            "title": "Toy Story",
+            "year": 1995
+        },
+        {
+            "ActorList": [
+                "Charlton Heston",
+                "Jack Hawkins",
+                "Haya Harareet",
+                "Stephen Boyd",
+                "Hugh Griffith",
+                "Martha Scott",
+                "Cathy O'Donnell",
+                "Sam Jaffe",
+                "Claude Heater",
+                "Jose Greci"
+            ],
+            "director": "William Wyler",
+            "genre": "Epic",
+            "onWatchList": true,
+            "rating": 8.6,
+            "title": "Ben-Hur",
+            "year": 1959
+        }
+    ]
+}
