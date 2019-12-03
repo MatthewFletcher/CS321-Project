@@ -61,6 +61,10 @@ public class PartialSearch{
         return (hasSubstringMatch(m1.getDirector(), m2.getDirector()));
     }
 
+    private Boolean matchGenre(Movie m1, Movie m2)
+    {
+        return (hasSubstringMatch(m1.getGenre(), m2.getGenre()));
+    }
     public void Search(Movie searchMovie)
     {
         FilmFinder filmFinder = FilmFinder.getInstance(); //used to access Master Movie list
@@ -73,25 +77,55 @@ public class PartialSearch{
 
         for (Movie m : MasterList)
         {
+            Boolean add = false;
             if (searchMovie.getTitle() != null)
             {
-                System.out.println("Comparing title");
                 if (matchTitle(m, searchMovie)) 
                 {
-                    matchList.add(m);
+                    add = true;
                     System.out.printf("TITLE MATCHES\n");
                 }
-                continue;
+                else
+                {
+                    add = false;
+                    continue;
+                }
+
             }
 
             if (searchMovie.getDirector() != null)
             {
                 if (matchDirector(m, searchMovie)) 
                 {
-                    matchList.add(m);
+                    add = true;
                     System.out.printf("DIRECTOR MATCHES\n");
                 }
-                continue;
+                else
+                {
+                    add = false;
+                    continue;
+                }
+
+            }
+
+            if (searchMovie.getGenre() != null)
+            {
+                if (matchGenre(m, searchMovie)) 
+                {
+                    add = true;
+                    System.out.printf("GENRE MATCHES\n");
+                }
+                else
+                {
+                    add = false;
+                    continue;
+                }
+
+            }
+            if (add) 
+            {
+                System.out.printf("Movie %s matched and added", m.getTitle());
+                matchList.add(m);
             }
         }
         System.out.println("Printing all matched movies");
@@ -104,7 +138,6 @@ public class PartialSearch{
         //Nothing was found
         if(matchList.isEmpty())
         {
-            System.out.println("SLKFDJSLDFKJLSDKJFLKDSF");
             //Create a movie object just for carrying a message.
             ArrayList<String> emptyActorList = new ArrayList<String>();
             Movie message = new Movie("No movies found with that search. Try again!\n", -1, "", emptyActorList, -1.0, "", false);
@@ -120,7 +153,6 @@ public class PartialSearch{
             }
             filmFinder.passResultsList(); //pass found movies to ResultsView
         }
-
     }
 
 
