@@ -134,12 +134,45 @@ public class ResultsView extends JPanel
         }
 
         m_results.clearSelection();
-        m_results.setListData(m_titles);
-        m_results.setSelectedIndex(0); //set default index for JList
 
-        if(m_titles[0].contains("No movies found")) //if there are no results found, display the special output for that scenario
-        {
-            m_movieInfo.setText("No results found.\n\nPlease try again.");
+
+        try { //display the results of the Search
+
+            if (m_titles[0].contains("No movies found")) //if there are no Search results found, display the special output for that scenario
+            {
+                m_movieInfo.setText("No results found.\n\nPlease try again.");
+                ImageIcon poster = new ImageIcon("images/None.jpg");
+                m_posterScale = poster.getImage();
+                m_posterScale = m_posterScale.getScaledInstance(220, 160, Image.SCALE_SMOOTH);
+
+                m_posterSpace.setText("");
+                m_badPoster.setBounds(263, 30, 220, 160);
+                m_badPoster.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+            } else { //otherwise, display Movie list and information
+                m_results.setListData(m_titles);
+                m_results.setSelectedIndex(0); //set default index for JList
+                m_results.ensureIndexIsVisible(0);
+
+                m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
+                m_movieInfo.setCaretPosition(0);
+
+
+                String m_posterLocation = new String("images/");
+                m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll("[ |:$|?$]", "_"); //create the filepath to find the poster in the images folder
+                m_posterLocation += ".jpg";
+
+                ImageIcon poster = new ImageIcon(m_posterLocation);
+                m_posterScale = poster.getImage();
+                m_posterScale = m_posterScale.getScaledInstance(150, 190, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
+
+                m_badPoster.setBounds(298, 20, 150, 190);
+                m_badPoster.setIcon(new ImageIcon(m_posterScale));
+                m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+            }
+
+        }
+        catch (IndexOutOfBoundsException e){ //this only happens when the WatchList is viewed while empty, so it has a special message
+            m_movieInfo.setText("The WatchList is empty.\n\nPlease add some Movies.");
             ImageIcon poster = new ImageIcon("images/None.jpg");
             m_posterScale = poster.getImage();
             m_posterScale = m_posterScale.getScaledInstance(220, 160, Image.SCALE_SMOOTH);
@@ -148,23 +181,7 @@ public class ResultsView extends JPanel
             m_badPoster.setBounds(263, 30, 220, 160);
             m_badPoster.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
         }
-        else { //otherwise, display Movie list and information
-            m_movieInfo.setText(m_descriptions[m_results.getSelectedIndex()]); //get initial information for JTextArea to display
-            m_movieInfo.setCaretPosition(0);
 
-
-            String m_posterLocation = new String("images/");
-            m_posterLocation += m_titles[m_results.getSelectedIndex()].replaceAll("[ |:$|?$]", "_"); //create the filepath to find the poster in the images folder
-            m_posterLocation += ".jpg";
-
-            ImageIcon poster = new ImageIcon(m_posterLocation);
-            m_posterScale = poster.getImage();
-            m_posterScale = m_posterScale.getScaledInstance(150, 190, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
-
-            m_badPoster.setBounds(298, 20, 150, 190);
-            m_badPoster.setIcon(new ImageIcon(m_posterScale));
-            m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
-        }
 
         m_results.addListSelectionListener(new ListSelectionListener()
         {
