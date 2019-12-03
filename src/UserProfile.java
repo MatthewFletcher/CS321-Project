@@ -5,7 +5,6 @@ import java.util.ArrayList;
  * of favorite or currently interesting movies. It also records the user's name.
  *
  */
-
 public class UserProfile {
  //Attributes
     private String              m_name;
@@ -23,6 +22,8 @@ public class UserProfile {
 
    /**
     * Overloaded Constructor
+    * @param name the user's name.
+    * @param watchList the ArrayList<Movie> of movies that are to be added to the watchList.
     */
    public UserProfile (String name, ArrayList<Movie> watchList)
    {
@@ -31,7 +32,8 @@ public class UserProfile {
    }
 
    /**
-    * Returns user's name
+    * Returns user's name.
+    * @return A String representing the user's name.
     */
    public String getName()
    {
@@ -40,6 +42,7 @@ public class UserProfile {
 
     /**
      * Returns reference to user's current watchList
+     * @return an ArrayList<Movie> reference to the user's current watchList
      */
     public ArrayList<Movie> getWatchList()
     {
@@ -47,7 +50,8 @@ public class UserProfile {
     }
 
    /**
-    * Sets user's name
+    * Sets user's name.
+    * @param name A String of the user's name.
     */
    public void setName(String name)
    {
@@ -55,7 +59,8 @@ public class UserProfile {
    }
 
    /**
-    * Adds movie to current watchList
+    * Adds movie to current watchList as long as it isn't already in the list.
+    * @param newMovie A Movie object that will be added to the watchList.
     */
    public void addMovie(Movie newMovie)
    {
@@ -68,6 +73,7 @@ public class UserProfile {
 
    /**
     * Removes movie from current watchList
+    * @param movie A Movie object that will be removed from the watchList as long as it exists in the list.
     */
    public void removeMovie(Movie movie)
    {
@@ -80,6 +86,7 @@ public class UserProfile {
 
 
 }
+
 
 
 
