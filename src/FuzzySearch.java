@@ -45,19 +45,19 @@ public class FuzzySearch{
     /**
      * Compare titles
      */
-    private Boolean matchTitle(Movie m, String title)
+    private Boolean matchTitle(Movie m1, Movie m2)
     {
-        return (dummyCompare(m.getTitle(), title) > THRESHOLD);
+        return (dummyCompare(m1.getTitle(), m2.getTitle()) < THRESHOLD);
     }
 
-    private Boolean matchYear(Movie m, Integer year)
+    private Boolean matchYear(Movie m1, Movie m2)
     {
-        return (Math.abs(m.getYear() - year) < YEARTHRESH);
+        return (Math.abs(m1.getYear() - m2.getYear()) < YEARTHRESH);
     }
 
-    private Boolean matchDirector(Movie m, String director)
+    private Boolean matchDirector(Movie m1, Movie m2)
     {
-        return (dummyCompare(m.getDirector(), director) > THRESHOLD);
+        return (dummyCompare(m1.getDirector(), m2.getDirector()) < THRESHOLD);
     }
 
     public ArrayList<Movie> Search(Movie searchMovie)
@@ -72,17 +72,17 @@ public class FuzzySearch{
         {
             if (m.getTitle() != null)
             {
-                if (matchTitle(m, searchMovie.getTitle())) matchList.add(m);
+                if (matchTitle(m, searchMovie)) matchList.add(m);
             }
 
             if (m.getYear() != null)
             {
-                if (matchYear(m, searchMovie.getYear())) matchList.add(m);
+                if (matchYear(m, searchMovie)) matchList.add(m);
             }
 
             if (m.getDirector() != null)
             {
-                if (matchDirector(m, searchMovie.getDirector())) matchList.add(m);
+                if (matchDirector(m, searchMovie)) matchList.add(m);
             }
             
         }
