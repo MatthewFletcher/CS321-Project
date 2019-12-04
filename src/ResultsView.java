@@ -24,7 +24,6 @@ public class ResultsView extends JPanel
      * JTextArea m_movieInfo- displays all information about a Movie object (title, actors, director, etc.)
      * JScrollPane m_infoPane- used to add a scrollbar to m_movieInfo
      * JLabel m_posterSpace- used to display the poster for the selected Movie
-     * JLabel m_badPoster- used to display special image when no results are found
      * Image m_posterScale- used to hold a copy of the poster that has been scaled to the size of m_posterSpace
      * JButton m_showWatchList- fetches WatchList from UserProfile via FilmFinder and displays the list
      * JButton m_toggleWatchList- toggles a Movie's WatchList status
@@ -37,12 +36,12 @@ public class ResultsView extends JPanel
     private JTextArea m_movieInfo;
     private JScrollPane m_infoPane;
     private JLabel m_posterSpace;
-    private JLabel m_badPoster;
     private Image m_posterScale;
     private JButton m_showWatchList;
     private JButton m_toggleWatchList;
     private String m_titles[];
     private String m_descriptions[];
+    private int m_counter;
 
     /**
      * Constructor function used to initialize the ResultsView JPanel
@@ -72,9 +71,6 @@ public class ResultsView extends JPanel
         m_posterSpace.setBounds(298, 20, 150, 190);
         add(m_posterSpace);
 
-        m_badPoster = new JLabel();
-        add(m_badPoster);
-
         m_showWatchList = new JButton("Display WatchList");
         m_showWatchList.setBounds(20, 410, 220, 20);
         add(m_showWatchList);
@@ -91,6 +87,8 @@ public class ResultsView extends JPanel
         m_toggleWatchList = new JButton("Toggle WatchList Status");
         m_toggleWatchList.setBounds(263, 400, 220, 30);
         add(m_toggleWatchList);
+
+        m_counter = 0;
     }
 
     /**
@@ -118,6 +116,8 @@ public class ResultsView extends JPanel
     public void showMoviesText(ArrayList<Movie> passMovies) {
 
         int i = 0; //used to iterate through arrays when adding new objects
+        m_counter++;
+        int number = m_counter;
         m_titles = new String[passMovies.size()]; //create String array of movie titles to put in the JList
         m_descriptions = new String[passMovies.size()]; //create String array to hold movie toString data
 
@@ -133,8 +133,10 @@ public class ResultsView extends JPanel
             i++;
         }
 
-        m_results.clearSelection();
-
+        if (number != m_counter) return;
+        else {
+            m_results.clearSelection();
+        }
 
         try { //display the results of the Search
 
@@ -148,10 +150,11 @@ public class ResultsView extends JPanel
                 m_posterScale = poster.getImage();
                 m_posterScale = m_posterScale.getScaledInstance(220, 160, Image.SCALE_SMOOTH);
 
-                m_posterSpace.setText("");
-                m_badPoster.setBounds(263, 30, 220, 160);
-                m_badPoster.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
-            } else { //otherwise, display Movie list and information
+                m_posterSpace.setBounds(263, 30, 220, 160);
+                m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+
+            }
+            else { //otherwise, display Movie list and information
                 m_results.setListData(m_titles);
                 m_results.setSelectedIndex(0); //set default index for JList
                 m_results.ensureIndexIsVisible(0);
@@ -168,26 +171,25 @@ public class ResultsView extends JPanel
                 m_posterScale = poster.getImage();
                 m_posterScale = m_posterScale.getScaledInstance(150, 190, Image.SCALE_SMOOTH); //create a version of the poster scaled to the size of the JLabel
 
-                m_badPoster.setBounds(298, 20, 150, 190);
-                m_badPoster.setIcon(new ImageIcon(m_posterScale));
+                m_posterSpace.setBounds(298, 20, 150, 190);
                 m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
             }
 
         }
         catch (IndexOutOfBoundsException e){ //this only happens when the WatchList is viewed while empty, so it has a special message
+            m_results.setListData(m_titles);
             m_movieInfo.setText("The WatchList is empty.\n\nPlease add some Movies.");
             ImageIcon poster = new ImageIcon("images/None.jpg");
             m_posterScale = poster.getImage();
             m_posterScale = m_posterScale.getScaledInstance(220, 160, Image.SCALE_SMOOTH);
 
-            m_posterSpace.setText("");
-            m_badPoster.setBounds(263, 30, 220, 160);
-            m_badPoster.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
+            m_posterSpace.setBounds(263, 30, 220, 160);
+            m_posterSpace.setIcon(new ImageIcon(m_posterScale)); //set the scaled poster in the JLabel
         }
 
 
-        m_results.addListSelectionListener(new ListSelectionListener()
-        {
+        m_results.addListSelectionListener(new ListSelectionListener() {
+
             public void valueChanged(ListSelectionEvent arg0) { //whenever a new Movie in the JList is selected...
                 if (!arg0.getValueIsAdjusting()) {
                     if (m_results.getSelectedIndex() < 0) return;
@@ -208,25 +210,21 @@ public class ResultsView extends JPanel
             }
         });
 
-        m_toggleWatchList.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent actionEvent)
-            {
-
+        m_toggleWatchList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (m_descriptions[m_results.getSelectedIndex()].contains("WatchList: false")) {
-                        FilmFinder.getInstance().addWatchList(passMovies.get(m_results.getSelectedIndex())); //add the Movie if it isn't in the WatchList...
+                        FilmFinder.getInstance().addWatchList((String) m_results.getSelectedValue()); //add the Movie if it isn't in the WatchList...
                     } else {
                         FilmFinder.getInstance().removeWatchList((String) m_results.getSelectedValue()); //...and remove the Movie if it is
                     }
-                }
-                catch (IndexOutOfBoundsException e)
-                {
+                } catch (IndexOutOfBoundsException e) {
                     return;
                 }
 
             }
         });
+
     }
 
 }

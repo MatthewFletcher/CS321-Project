@@ -123,13 +123,19 @@ public class FilmFinder {
 
     /**
      * Adds a Movie to the UserProfile's WatchList
-     * @param m- Movie to be added to the WatchList
+     * @param title- name of the Movie to be removed from the WatchList
      */
-    public void addWatchList(Movie m)
+    public void addWatchList(String title)
     {
-        m.setWatchList(true);
+        Boolean check = false;
+        for (Movie m : m_MasterList) {
+            if (m.getTitle().equals(title)) {
+                m.setWatchList(true);
+                check = true;
+            }
+        }
 
-        createWatchList();
+        if(check) { createWatchList(); }
     }
 
     /**
