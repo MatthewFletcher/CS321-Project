@@ -123,7 +123,7 @@ public class FilmFinder {
 
     /**
      * Adds a Movie to the UserProfile's WatchList
-     * @param title- name of the Movie to be removed from the WatchList
+     * @param title- name of the Movie to be added to the WatchList
      */
     public void addWatchList(String title)
     {

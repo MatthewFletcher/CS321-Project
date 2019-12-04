@@ -41,7 +41,6 @@ public class ResultsView extends JPanel
     private JButton m_toggleWatchList;
     private String m_titles[];
     private String m_descriptions[];
-    private int m_counter;
 
     /**
      * Constructor function used to initialize the ResultsView JPanel
@@ -87,8 +86,6 @@ public class ResultsView extends JPanel
         m_toggleWatchList = new JButton("Toggle WatchList Status");
         m_toggleWatchList.setBounds(263, 400, 220, 30);
         add(m_toggleWatchList);
-
-        m_counter = 0;
     }
 
     /**
@@ -116,8 +113,6 @@ public class ResultsView extends JPanel
     public void showMoviesText(ArrayList<Movie> passMovies) {
 
         int i = 0; //used to iterate through arrays when adding new objects
-        m_counter++;
-        int number = m_counter;
         m_titles = new String[passMovies.size()]; //create String array of movie titles to put in the JList
         m_descriptions = new String[passMovies.size()]; //create String array to hold movie toString data
 
@@ -133,10 +128,7 @@ public class ResultsView extends JPanel
             i++;
         }
 
-        if (number != m_counter) return;
-        else {
-            m_results.clearSelection();
-        }
+        m_results.clearSelection();
 
         try { //display the results of the Search
 
