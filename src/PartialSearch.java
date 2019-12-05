@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class PartialSearch{
+public class PartialSearch extends SearchBuilder{
 
 
     private static PartialSearch instance = null;
@@ -65,7 +65,9 @@ public class PartialSearch{
     {
         return (hasSubstringMatch(m1.getGenre(), m2.getGenre()));
     }
-    public void Search(Movie searchMovie)
+
+    @Override
+    public void search(Movie searchMovie)
     {
         FilmFinder filmFinder = FilmFinder.getInstance(); //used to access Master Movie list
         filmFinder.getResultsList().clear(); //clears all previous search results

@@ -11,7 +11,7 @@ public class SearchBuilder {
     /**
      * Private Constructor. Call by getInstance().
      */
-    private SearchBuilder()
+    protected SearchBuilder()
     {
 
     }
