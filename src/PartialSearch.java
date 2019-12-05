@@ -66,6 +66,17 @@ public class PartialSearch extends SearchBuilder{
         return (hasSubstringMatch(m1.getGenre(), m2.getGenre()));
     }
 
+    private Boolean matchActor(Movie m1, Movie m2)
+    {
+        boolean conforms = false;
+
+        for (String actor: m1.getActors()) {
+            if (hasSubstringMatch(actor, m2.getActors().get(0))) conforms = true;
+        }
+
+        return conforms;
+    }
+
     @Override
     public void search(Movie searchMovie)
     {
@@ -124,6 +135,20 @@ public class PartialSearch extends SearchBuilder{
                 }
 
             }
+
+            if (!searchMovie.getActors().isEmpty())
+            {
+                if (matchActor(m, searchMovie))
+                {
+                    add = true;
+                    System.out.printf("ACTOR MATCHES\n");
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            
             if (add) 
             {
                 System.out.printf("Movie %s matched and added", m.getTitle());
