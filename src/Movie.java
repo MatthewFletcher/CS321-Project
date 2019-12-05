@@ -22,7 +22,11 @@ class Movie {
 
     }
 
-    //Constructor from JSON object
+    /**
+     * Constructor to create movie from a json object
+     * @param JSON object with movie information
+     * @return n/a
+     */
     public Movie(JSONObject j)
     {
         m_title = (String) j.get("title");
@@ -42,7 +46,11 @@ class Movie {
         m_onWatchList = (Boolean) j.get("onWatchList");
 
     }
-
+    /**
+     * Tester function to create a movie from keyboard input
+     * @param None
+     * @return a movie object created from keyboard input
+     */
     public static Movie createMovie()
     {
         Scanner reader = new Scanner(System.in);
@@ -86,7 +94,12 @@ class Movie {
     }
 
 
-    //Overloaded constructor
+    /**
+     * Creates a movie from raw information passed into it
+     * @param: Each of the values required for a movie. All objects must be present. 
+     * @returns N/A
+     *
+     */
     public Movie(String title, Integer year, String director, ArrayList<String> actors, Double rating, String genre, Boolean watchList)
     {
         m_title = title;
@@ -102,7 +115,12 @@ class Movie {
             m_actors.add(actor);
         }
     }
-
+    
+    /**
+     * Returns a string representation of the movie with all applicable information
+     * @param None
+     * @return A String representing the movie
+     */
     public String toString()
     {
         String actorstr = "\n";
@@ -119,6 +137,12 @@ class Movie {
     //https://stackoverflow.com/a/53226346/5763413
     //Stack overflow said to do it
     @SuppressWarnings("unchecked")
+    /**
+     * Creates a JSONObject of the movie
+     * @param None
+     * @return a JSONObject
+     *
+     */
     public  JSONObject toJSON()
     {
         JSONObject obj = new JSONObject();
@@ -146,38 +170,78 @@ class Movie {
         return obj;
     }
 
+    /**
+     * Returns the title of the movie
+     * @param None
+     * @return String of title
+     */
     public String getTitle()
     {
         return m_title;
     }
 
+    /**
+     * Returns the release year of the movie
+     * @param None
+     * @return Integer of release year
+     */
     public Integer getYear()
     {
         return m_year;
     }
 
+    /**
+     * Returns the director of the movie
+     * @param None
+     * @return String of director
+     */
     public String getDirector()
     {
         return m_director;
     }
 
+    /**
+     * Returns the actors of the movie
+     * @param None
+     * @return ArrayList<String> of actors
+     */
     public ArrayList<String> getActors()
     {
         return m_actors;
     }
-
+    
+    /**
+     * Returns the rating of the movie
+     * @param None
+     * @return A double with the rating of the movie
+     */
     public Double getRating()
     {
         return m_rating;
     }
 
+    /**
+     * Returns the genre of the movie
+     * @param None
+     * @return String of genre
+     */
     public String getGenre()
     {
         return m_genre;
     }
 
+    /**
+     * Gets the watchlist status of the movie
+     * @param none
+     * @return Boolean 
+     */
     public Boolean getWatchList() { return m_onWatchList; }
-
+    
+    /**
+     * Sets the watchlist status of the movie
+     * @param Boolean new value to be set 
+     * @return None
+     */
     public void setWatchList(Boolean newValue) { m_onWatchList = newValue; }
 
 }
