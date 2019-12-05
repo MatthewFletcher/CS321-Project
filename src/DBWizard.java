@@ -21,7 +21,11 @@ public class DBWizard{
     @SuppressWarnings("unchecked")
 
 
-
+    /**
+     * Writes the list of movies out to the master database. 
+     * @param The list of movies to be written to the database.
+     * @return Void
+     */
     public static void writeDB(ArrayList<Movie> ml)
     {
         JSONArray list = new JSONArray();
@@ -45,6 +49,13 @@ public class DBWizard{
         }
 
     }
+
+    /**
+     * Reads the Master list of movies from the database
+     * @param None
+     * @return An ArrayList of Movie objects
+     *
+     */
 
     public static ArrayList<Movie> readDB()
     {
@@ -83,7 +94,9 @@ public class DBWizard{
 
 
 
-
+    /**
+     * Main function for testing
+     */
     public static void main(String args[])
     {
 
