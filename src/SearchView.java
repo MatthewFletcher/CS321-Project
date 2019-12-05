@@ -11,17 +11,23 @@ import java.util.ArrayList;
  */
 public class SearchView extends JPanel {
 
+    /**
+     * static MainView instance- keeps track of MainView instance for Singleton implementation
+     * JTextField enterTitle- takes user input for using the movie's title in a search
+     * JComboBox enterRating- takes user input for using minimum rating in a search
+     * JTextField enterDirector- takes user input for using the movie's director in a search
+     * JComboBox enterYear- takes user input for using the movie's year in a search
+     * JTextField enterGenre- takes user input for using the genre title in a search
+     * JTextField enterActor- takes user input for using one of the movie's actors in a search
+     * JCheckBox enableFuzzySearch- takes user input to enable/disable fuzzy searching
+     */
     private static SearchView instance = null;
-
-    //Inputs
     private JTextField enterTitle;
-
     private JComboBox enterRating;
     private JTextField enterDirector;
     private JComboBox enterYear;
     private JTextField enterGenre;
     private JTextField enterActor;
-
     private JCheckBox enableFuzzySearch;
 
     /**

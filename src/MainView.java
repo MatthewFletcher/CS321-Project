@@ -11,6 +11,10 @@ import java.awt.event.WindowEvent;
  */
 public class MainView extends JFrame
 {
+
+    /**
+     * static MainView instance- keeps track of MainView instance for Singleton implementation
+     */
     private static MainView instance;
 
     /**
